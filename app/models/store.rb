@@ -4,7 +4,7 @@ class Store < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	#has_and_belongs_to_many :users
-	has_many :bookings
+	has_many :bookings,dependent: :destroy
 	has_many :users,through: :bookings
 	validates :email, presence: true
 end
