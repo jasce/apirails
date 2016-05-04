@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Business Companies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company name</th>
+      <th>Website url</th>
+      <th>Company email</th>
+      <th>Contact person</th>
+      <th>Mobile</th>
+      <th>City</th>
+      <th>Services</th>
+      <th>Pan</th>
+      <th>Bank name</th>
+      <th>Account no</th>
+      <th>Ifsc</th>
+      <th>Tin</th>
+      <th>Tan</th>
+      <th>Referal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @business_companies.each do |business_company| %>
+      <tr>
+        <td><%= business_company.company_name %></td>
+        <td><%= business_company.website_url %></td>
+        <td><%= business_company.company_email %></td>
+        <td><%= business_company.contact_person %></td>
+        <td><%= business_company.mobile %></td>
+        <td><%= business_company.city %></td>
+        <td><%= business_company.services %></td>
+        <td><%= business_company.Pan %></td>
+        <td><%= business_company.Bank_name %></td>
+        <td><%= business_company.Account_no %></td>
+        <td><%= business_company.IFSC %></td>
+        <td><%= business_company.TIN %></td>
+        <td><%= business_company.TAN %></td>
+        <td><%= business_company.referal %></td>
+        <td><%= link_to 'Show', business_company %></td>
+        <td><%= link_to 'Edit', edit_business_company_path(business_company) %></td>
+        <td><%= link_to 'Destroy', business_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Business company', new_business_company_path %>

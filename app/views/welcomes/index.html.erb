@@ -1,0 +1,50 @@
+
+
+<h1>Welcome to Unclejoy</h1>
+
+<p><strong>Listing Users added recently</strong></p>
+        <ul><% @users.each do |user| %>
+           <li> <%= user.name %> </li>
+          <% end %>
+        </ul>
+
+         <p><strong>Listing Stores added recently</strong></p>
+        <ul><% @stores.each do |store| %>
+           <li> <%= store.name %> </li>
+           <% end %>
+        </ul>
+       <form  method = "" >
+         <label>Store type</label>
+         <% @stores.each do |store| %>
+           <input type="radio" name="service_type" value="<%= store.store_type%>"> <%= store.store_type%></input>
+           <% end %>
+           <button type="submit" >Submit </button>         
+       </form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+
+        <td><%= link_to 'All Users ', users_path %></td>
+        <td><%= link_to 'All Stores', stores_path%></td>
+         <td><%= link_to 'All Business Companies ', business_companies_path %></td>
+          <td><%= link_to 'All Business Individuals ', business_individuals_path %></td>
+        <td><!--%= link_to 'Destroy', welcome, method: :delete, data: { confirm: 'Are you sure?' } %--></td>
+       
+      </tr>
+    
+  </tbody>
+</table>
+
+<br>
+
+<!--%= link_to 'New Welcome', new_welcome_path %-->

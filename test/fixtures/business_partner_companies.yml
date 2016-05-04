@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Company_name: MyString
+  Website_url: MyString
+  Company_email: MyString
+  Contact_person_name: MyString
+  Mobile: MyString
+  City: MyString
+  Services: MyString
+  Pan_no: MyString
+  Bank_Name: MyString
+  Account_No: MyString
+  IFSC_code: MyString
+  TIN: MyString
+  TAN: MyString
+
+two:
+  Company_name: MyString
+  Website_url: MyString
+  Company_email: MyString
+  Contact_person_name: MyString
+  Mobile: MyString
+  City: MyString
+  Services: MyString
+  Pan_no: MyString
+  Bank_Name: MyString
+  Account_No: MyString
+  IFSC_code: MyString
+  TIN: MyString
+  TAN: MyString

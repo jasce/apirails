@@ -1,0 +1,2 @@
+module BusinessIndividualsHelper
+end

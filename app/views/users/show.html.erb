@@ -1,0 +1,42 @@
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile %>
+</p>
+
+<p>
+  <strong>House no:</strong>
+  <%= @user.house_no %>
+</p>
+
+<p>
+  <strong>Locality:</strong>
+  <%= @user.locality %>
+</p>
+
+<p>
+  <strong>Pincode:</strong>
+  <%= @user.pincode %>
+</p>
+
+<p>
+  <strong>Stores:</strong>
+  <%= @user.stores.count %> 
+</p>
+
+<p>
+  <strong>Bookings status:</strong>
+  <% @user.bookings.each do |book|%>
+    <%= book.status %>
+  <% end %> 
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
