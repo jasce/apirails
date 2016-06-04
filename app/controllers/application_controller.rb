@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
  # include SessionsHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -20,6 +20,16 @@ class ApplicationController < ActionController::Base
       ##@current_ability ||= UserAbility.new(current_account)
     end
   end
+
+  private
+
+def authenticate_user_from_token!
+         token = request.headers["token"].presence
+         user = token && User.find_by_authentication_token(token.to_s)
+        if user
+          sign_in user, store: false
+        end
+end
 
  
 end

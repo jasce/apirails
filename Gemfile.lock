@@ -212,6 +212,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 1.0.0.pre2)
+  bcrypt (~> 3.1.7)
   byebug
   cancancan
   coffee-rails (~> 4.1.0)
