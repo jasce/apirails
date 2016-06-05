@@ -16,12 +16,13 @@ Rails.application.routes.draw do
   resources :welcomes, only: [:index]
   
 namespace :api, defaults: {format: :json },constraints: {subdomain: 'api' }, path: '/' do
-  
+  	scope module: :v1, constraints: ApiConstraints.new(version: 1 , defaults: true) do
     devise_scope :user do
       post '/login' => 'sessions#create', :as => 'login'
       delete '/logout' => 'sessions#destroy', :as => 'logout'
     end
-    resources :users, only: [:index]
+    resources :users, :only => [:show, :create]
+	end
   
 end
 
