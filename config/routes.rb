@@ -21,7 +21,7 @@ namespace :api, defaults: {format: :json },constraints: {subdomain: 'api' }, pat
       post '/login' => 'sessions#create', :as => 'login'
       delete '/logout' => 'sessions#destroy', :as => 'logout'
     end
-    resources :users, :only => [:show, :create]
+    resources :users, :only => [:show, :create,:update]
 	end
   
 end
