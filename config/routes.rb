@@ -15,14 +15,14 @@ Rails.application.routes.draw do
   resources :business_individuals
   resources :welcomes, only: [:index]
   
-namespace :api do
-  namespace :v1 do
+namespace :api, defaults: {format: :json },constraints: {subdomain: 'api' }, path: '/' do
+  
     devise_scope :user do
       post '/login' => 'sessions#create', :as => 'login'
       delete '/logout' => 'sessions#destroy', :as => 'logout'
     end
     resources :users, only: [:index]
-  end
+  
 end
 
   root to: "welcomes#index"
