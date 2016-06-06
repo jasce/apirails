@@ -16,7 +16,7 @@ class Booking < ActiveRecord::Base
 
 
 def self.search(params = {})
-    bookings = params[:booking_ids].present? ? booking.find(params[:booking_ids]) : booking.all
+    bookings = params[:booking_ids].present? ? Booking.find(params[:booking_ids]) : Booking.all
 
     bookings = bookings.filter_by_status(params[:keyword]) if params[:keyword]
     bookings = bookings.filter_by_Service_type(params[:keyword]) if params[:keyword]
