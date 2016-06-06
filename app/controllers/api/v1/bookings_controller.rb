@@ -3,9 +3,12 @@ class Api::V1::BookingsController < ApplicationController
     before_action :authenticate_with_token!, only: [:create,:update,:destroy]
 
    def index
-     bookings = params[:booking_ids].present? ? Booking.find(params[:booking_ids]) : booking.all
-    respond_with bookings 
+   respond_with Booking.search(params)
   end
+
+
+    
+ 
 
   def show
     respond_with Booking.find(params[:id])
