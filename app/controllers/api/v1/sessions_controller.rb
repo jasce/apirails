@@ -12,28 +12,47 @@ class Api::V1::SessionsController < Devise::SessionsController
   respond_to :json
 
   def create
-    #warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
-    #render :status => 200,
-     #      :json => { :success => true,
-      #                :info => "Logged in",
-       #               :data => { :auth_token => current_user.authentication_token } }
+    #----------------------------------------- This Works --------------------------------------
   
-   	user = User.find_for_database_authentication(email: params[:email])
-	   if user && BCrypt::Engine.hash_secret(params[:password],user.encrypted_password) ==  user.encrypted_password
-	   	token =  user.ensure_authentication_token
-	   	render json: {auth_token: token}
-	   else
-	   	render nothing: true, status: :unauthorized
+   	#user = User.find_for_database_authentication(email: params[:email])
+	  # if user && BCrypt::Engine.hash_secret(params[:password],user.encrypted_password) ==  user.encrypted_password
+	   #	token =  user.ensure_authentication_token
+	   #	render json: {auth_token: token}
+	   #else
+	   #	render nothing: true, status: :unauthorized
 	   	
-	   end
+	   #end
+
+     #---------------------------------------- A better Approach Lets see if works-------------------
+    user_password = params[:session][:password]
+    user_email = params[:session][:email]
+    user = user_email.present? && User.find_by(email: user_email)
+
+    if user.valid_password? user_password
+      sign_in user, store: false
+      user.generate_authentication_token!
+      user.save
+      render json: user, status: 200, location: [:api,:v1, user]
+    else
+      render json: { errors: "Invalid email or password" }, status: 422
+    end
+    #--------------------------------------- This Works as well with full user record --------------
   end
 
+
+
   def destroy
-    token = request.headers["token"]
-    current_user = User.find_by(authentication_token: token) unless token.empty?
-    current_user.authentication_token = nil
-    current_user.save!
-    render json: {}
+    #---------------------------------------- A better Approach Lets see if works-------------------
+    #token = request.headers["token"]
+    #current_user = User.find_by(authentication_token: token) unless token.empty?
+    #current_user.authentication_token = nil
+    #current_user.save!
+    #render json: {}
+    user = User.find_by(authentication_token: params[:id])
+    user.generate_authentication_token!
+    user.save
+    head 204
+
   end
 
   def failure

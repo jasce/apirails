@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -15,13 +17,13 @@ Rails.application.routes.draw do
   resources :business_individuals
   resources :welcomes, only: [:index]
   
-namespace :api, defaults: {format: :json },constraints: {subdomain: 'api' }, path: '/' do
-  	scope module: :v1, constraints: ApiConstraints.new(version: 1 , defaults: true) do
+namespace :api do
+  	namespace :v1 do
     devise_scope :user do
       post '/login' => 'sessions#create', :as => 'login'
       delete '/logout' => 'sessions#destroy', :as => 'logout'
     end
-    resources :users, :only => [:show, :create,:update]
+    resources :users, :only => [:show, :create,:update,:destroy]
 	end
   
 end
