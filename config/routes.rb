@@ -23,7 +23,9 @@ namespace :api do
       post '/login' => 'sessions#create', :as => 'login'
       delete '/logout' => 'sessions#destroy', :as => 'logout'
     end
-    resources :users, :only => [:show, :create,:update,:destroy]
+    resources :users, :only => [:show, :create,:update,:destroy] do
+      resources :bookings, :only => [:update,:destroy,:create,:index]
+    end
 	end
   
 end

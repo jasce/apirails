@@ -23,15 +23,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private
-
-def authenticate_user_from_token!
-         token = request.headers["token"].presence
-         user = token && User.find_by(authentication_token: (token.to_s))
-        if user
-          sign_in user, store: false
-        end
-end
+  #private
+# --------------------------------------------- Not Needed for Now ------------------
+#def authenticate_user_from_token!
+ #        token = request.headers["token"].presence
+  #       user = token && User.find_by(authentication_token: (token.to_s))
+  #      if user
+  #        sign_in user, store: false
+  #      end
+#end
 
  
 end
