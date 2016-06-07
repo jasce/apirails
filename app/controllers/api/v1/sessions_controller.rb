@@ -3,7 +3,7 @@ class Api::V1::SessionsController < Devise::SessionsController
 
  #acts_as_token_authentication_handler_for User
 
-    #skip_before_filter :authenticate_user!, :only => [:create, :new]
+    skip_before_filter :verify_signed_out_user
    # skip_authorization_check only: [:create, :failure, ,  :new]    
  before_filter :authenticate_user_from_token!, except: [:create]
   skip_before_filter :verify_authenticity_token,
