@@ -1,14 +1,33 @@
 class Api::V1::BookingsController < ApplicationController
   respond_to :json
-    before_action :authenticate_with_token!, only: [:create,:update,:destroy]
+    before_action :authenticate_with_token!#, only: [:create,:update,:destroy]
 
    def index
-   respond_with Booking.search(params)
+
+   	# --------------------------------- Correspond to Hired Leads associated with current User ----------------------
+   #respond_with Booking.where(["user_id = ? and store_id <> '' ", current_user.id  ])#Booking.search(params)
+
+    # --------------------------------- Correspond to All Leads associated with current User ----------------------
+    respond_with Booking.where("user_id = ? ", current_user.id )
+
+   # --------------------------------- Correspond to Open Leads associated with current User ----------------------
+   #respond_with Booking.where(:store_id => nil)
+
+
+
   end
 
 
-    
- 
+  def hired
+  	  respond_with Booking.where(["user_id = ? and store_id <> '' ", current_user.id  ])
+  end
+
+
+  def open
+  	respond_with Booking.where(:store_id => nil)
+  end
+
+
 
   def show
     respond_with Booking.find(params[:id])
