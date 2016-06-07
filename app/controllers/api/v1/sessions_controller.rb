@@ -48,7 +48,7 @@ class Api::V1::SessionsController < Devise::SessionsController
     #current_user.authentication_token = nil
     #current_user.save!
     #render json: {}
-    user = User.find_by(authentication_token: params[:id])
+    user = User.find_by(authentication_token: request.headers['Authorization'])
     user.generate_authentication_token!
     user.save
     head 204
