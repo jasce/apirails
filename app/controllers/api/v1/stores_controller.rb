@@ -11,7 +11,7 @@ class Api::V1::StoresController < ApplicationController
 	end
     
     def storeswithlocation
-    respond_with Store.find(params[:locality])
+    respond_with Store.find(params[:city])
     end
 
 end
