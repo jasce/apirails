@@ -19,23 +19,27 @@ Rails.application.routes.draw do
   
 namespace :api do
   	namespace :v1 do
-    devise_scope :user do
-      post '/login' => 'sessions#create', :as => 'login'
-      delete '/logout' => 'sessions#destroy', :as => 'logout'
-    end
-    resources :users, :only => [:show, :create,:update,:destroy] do
-      resources :bookings, :only => [:update,:destroy,:create,:index] do
-        collection do
-          get :open
-          get :hired
-          end
-      end
+		    devise_scope :user do
+		      post '/login' => 'sessions#create', :as => 'login'
+		      delete '/logout' => 'sessions#destroy', :as => 'logout'
+		    end
+		    resources :users, :only => [:show, :create,:update,:destroy] do
+		      resources :bookings, :only => [:update,:destroy,:create,:index] do
+		        collection do
+		          get :open
+		          get :hired
+		          end
+		      end
 
-      resources :stores, :only => [:index]
-    end
-	end
+		      resources :stores, :only => [:index] do 
+		      	collection do
+		      		get :storeswithlocation
+		      	end
+		    	end
+			end
   
-end
+		end
+	end
 
   root to: "welcomes#index"
 end

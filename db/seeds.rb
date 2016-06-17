@@ -18,10 +18,10 @@ u3 = User.create!(name: 'JasmeetSi',email: 'jascee.gtbit@gmail.comno',password: 
 u4 = User.create!(name: 'JasmeetSin',email: 'jascee.gtbit@gmail.comnop',password: '12345678')
 
 
-s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',password: '12345678')
-s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',password: '12345678')
-s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678')
-s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',password: '12345678')
+s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',password: '12345678',locality: 'Gurgaon')
+s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',password: '12345678',locality: 'Delhi')
+s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678',locality: 'Haryana')
+s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',password: '12345678',locality:'Delhi')
 
 
 u1.bookings.create!(store: s1,status: 'Complete',Service_type: 'Electrical')
