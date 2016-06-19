@@ -1,4 +1,6 @@
 class Booking < ActiveRecord::Base
+  before_create :set_status!
+
   belongs_to :user
   belongs_to :store
   belongs_to :store_category
@@ -27,6 +29,13 @@ def self.search(params = {})
 
     bookings
   end
+  private
+def set_status!
 
+  self.confirmed = true
+  self.status = 'Unconfirmed' 
+end
 
 end
+
+

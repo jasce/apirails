@@ -22,9 +22,8 @@ class Api::V1::BookingsController < Api::V1::BaseApiController
   	  respond_with Booking.where(["user_id = ? and store_id <> '' ", current_user.id  ])
   end
 
-
   def open
-  	respond_with Booking.where(:store_id => nil)
+  	respond_with Booking.where('(user_id = ? and confirmed = "t" )', current_user.id  )
   end
 
 
@@ -61,7 +60,7 @@ class Api::V1::BookingsController < Api::V1::BaseApiController
   private
 
     def booking_params
-      params.require(:booking).permit(:status, :Service_type)
+      params.require(:booking).permit(:store_category_id,:store_sub_category_id,:date,:time,:confirmed)
     end
   end
 

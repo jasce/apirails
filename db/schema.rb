@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619070832) do
+ActiveRecord::Schema.define(version: 20160619210101) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -47,15 +47,12 @@ ActiveRecord::Schema.define(version: 20160619070832) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "booking_id"
     t.string   "Service_type"
     t.string   "status"
     t.integer  "user_id"
     t.integer  "store_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "store_categories_id"
-    t.integer  "store_sub_categories_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "store_category_id"
     t.integer  "store_sub_category_id"
     t.date     "date"
@@ -63,10 +60,8 @@ ActiveRecord::Schema.define(version: 20160619070832) do
     t.boolean  "confirmed"
   end
 
-  add_index "bookings", ["store_categories_id"], name: "index_bookings_on_store_categories_id"
   add_index "bookings", ["store_category_id"], name: "index_bookings_on_store_category_id"
   add_index "bookings", ["store_id"], name: "index_bookings_on_store_id"
-  add_index "bookings", ["store_sub_categories_id"], name: "index_bookings_on_store_sub_categories_id"
   add_index "bookings", ["store_sub_category_id"], name: "index_bookings_on_store_sub_category_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 

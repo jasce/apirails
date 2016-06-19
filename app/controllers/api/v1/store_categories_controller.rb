@@ -3,7 +3,7 @@ class Api::V1::StoreCategoriesController < Api::V1::BaseApiController
   before_action :authenticate_with_token!
    respond_to :json
  def index
-	   respond_with User.all
+	   respond_with StoreCategory.all
 end
 
 

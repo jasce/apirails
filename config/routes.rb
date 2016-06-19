@@ -34,6 +34,7 @@ namespace :api do
 		    	end
 		    	
 			end
+			
 			get '/categories' => 'store_categories#index', :as => 'categories'
 		    get '/categories/:id' => 'store_categories#show', :as => 'subcategories'
   
