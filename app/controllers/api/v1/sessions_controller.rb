@@ -1,6 +1,6 @@
 # file: app/controller/api/v1/sessions_controller.rb
 class Api::V1::SessionsController < Devise::SessionsController
-
+  include Authenticable
  #acts_as_token_authentication_handler_for User
 
     skip_before_filter :verify_signed_out_user
