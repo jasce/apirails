@@ -3,8 +3,6 @@ require 'api_constraints'
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :business_individuals, controllers: {registrations: "business_individuals/registrations"}
-  devise_for :business_companies, controllers: {registrations: "business_companies/registrations"}
   devise_for :stores, controllers: {registrations: "stores/registrations"}
   devise_for :users, controllers: {registrations: "users/registrations"}
   resources :users
@@ -13,8 +11,6 @@ Rails.application.routes.draw do
   
   resources :stores
 
-  resources :business_companies
-  resources :business_individuals
   resources :welcomes, only: [:index]
   
 namespace :api do
@@ -36,7 +32,10 @@ namespace :api do
 		      		get :storeswithlocation
 		      	end
 		    	end
+		    	
 			end
+			get '/categories' => 'store_categories#index', :as => 'categories'
+		    get '/categories/:id' => 'store_categories#show', :as => 'subcategories'
   
 		end
 	end
