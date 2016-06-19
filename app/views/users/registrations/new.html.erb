@@ -14,22 +14,7 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
-  <div class="field">
-    <%= f.label :house_no,as: "House No" %><br />
-    <%= f.text_field :house_no, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :locality %><br />
-    <%= f.text_field :locality, autofocus: true %>
-  </div>
-
-
-
-  <div class="field">
-    <%= f.label :pincode %><br />
-    <%= f.text_field :pincode, autofocus: true %>
-  </div>
-
+  
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

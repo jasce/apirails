@@ -1,6 +1,8 @@
 class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :store
+  belongs_to :store_category
+  belongs_to :store_sub_category
   validates :user_id , presence: true
 
   scope :filter_by_status, lambda { |keyword|

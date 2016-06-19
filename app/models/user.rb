@@ -7,9 +7,7 @@ class User < ActiveRecord::Base
 	#has_and_belongs_to_many :stores
 	has_many :bookings,dependent: :destroy
 	has_many :stores, through: :bookings
-	has_and_belongs_to_many :business_companies
-	has_and_belongs_to_many :business_individuals
-
+	
 	validates :email, presence: true
 
 # code from previous work that works	

@@ -10,28 +10,54 @@
 User.destroy_all
 Store.destroy_all
 AdminUser.destroy_all
+StoreCategory.destroy_all
+StoreSubCategory.destroy_all
 Booking.destroy_all
-
+# --------------------------------------- Users  =------------------------------------------
 u1 = User.create!(name: 'Jasmeet',email: 'jascee.gtbit@gmail.comz',password: '12345678')
 u2 = User.create!(name: 'JasmeetS',email: 'jascee.gtbit@gmail.comn',password: '12345678')
 u3 = User.create!(name: 'JasmeetSi',email: 'jascee.gtbit@gmail.comno',password: '12345678')
 u4 = User.create!(name: 'JasmeetSin',email: 'jascee.gtbit@gmail.comnop',password: '12345678')
 
+# --------------------------------------- Stores  =------------------------------------------
+s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',password: '12345678')
+s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',password: '12345678')
+s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678')
+s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',password: '12345678')
 
-s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',password: '12345678',city: 'Gurgaon')
-s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',password: '12345678',city: 'Delhi')
-s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678',city: 'Haryana')
-s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',password: '12345678',city:'Delhi')
+# --------------------------------------- Store Categories------------------------------------------
+sc1 = StoreCategory.create!(category: 'Hardware Material')
+sc2 = StoreCategory.create!(category: 'Plumbing Material')
+sc3 = StoreCategory.create!(category: 'Painting Material')
+sc4 = StoreCategory.create!(category: 'Electrical Material')
+sc5 = StoreCategory.create!(category: 'Construction Material')
 
+# --------------------------------------- Store Sub Categories------------------------------------------
+ ssc11 = sc1.store_sub_categories.create!(subcategory: 'General Hardware work')
+ ssc12 = sc1.store_sub_categories.create!(subcategory: 'Industrial Hardware work')
 
-u1.bookings.create!(store: s1,status: 'Complete',Service_type: 'Electrical')
-u2.bookings.create!(store: s2,status: 'Pending',Service_type: 'Plumbing')
-u4.bookings.create!(store: s3,status: 'Complete',Service_type: 'Plumbing')
-u1.bookings.create!(store: s2,status: 'Pending',Service_type: 'Carpenter')
-u1.bookings.create!(store: s1,status: 'Pending',Service_type: 'Building Material')
-u2.bookings.create!(store: s2,status: 'Complete',Service_type: 'Painting')
-u3.bookings.create!(store: s3,status: 'Pending',Service_type: 'Plumbing')
-u4.bookings.create!(store: s3,status: 'Pending',Service_type: 'Electrical')
+ ssc21 = sc2.store_sub_categories.create!(subcategory: 'General Plumbing work')
+ ssc22 = sc2.store_sub_categories.create!(subcategory: 'Industrial Plumbing work')
+
+ ssc31 = sc3.store_sub_categories.create!(subcategory: 'General Painting work')
+ ssc32 = sc3.store_sub_categories.create!(subcategory: 'Industrial Painting work')
+
+ ssc41 = sc4.store_sub_categories.create!(subcategory: 'General Electrical work')
+ ssc42 =  sc4.store_sub_categories.create!(subcategory: 'Industrial Electrical work')
+
+ ssc51 = sc5.store_sub_categories.create!(subcategory: 'General Construction work')
+ ssc52 = sc5.store_sub_categories.create!(subcategory: 'Industrial Construction work')
+
+# ----------------------------------------------Booking Categories ---------------------------------------
+
+u1.bookings.create!(store: s1,status: 'Complete',store_category: sc1 , store_sub_category: ssc11 )
+u2.bookings.create!(store: s2,status: 'Pending',store_category: sc1 , store_sub_category: ssc12 )
+u4.bookings.create!(store: s3,status: 'Complete',store_category: sc2 , store_sub_category: ssc21 )
+u1.bookings.create!(store: s2,status: 'Pending',store_category: sc3 , store_sub_category: ssc32 )
+u1.bookings.create!(store: s1,status: 'Pending',store_category: sc2 , store_sub_category: ssc22 )
+u2.bookings.create!(store: s2,status: 'Complete',store_category: sc5, store_sub_category: ssc51 )
+u3.bookings.create!(store: s3,status: 'Pending',store_category: sc4 , store_sub_category: ssc42 )
+u4.bookings.create!(store: s3,status: 'Pending',store_category: sc4 , store_sub_category: ssc41 )
 
 AdminUser.create!(email: 'jascee.gtbit@gmail.com', password: 'unclejoy', password_confirmation: 'unclejoy')
 AdminUser.create!(email: 'manpreet28111995@gmail.com', password: 'unclejoy', password_confirmation: 'unclejoy')
