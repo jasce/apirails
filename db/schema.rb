@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604193331) do
+ActiveRecord::Schema.define(version: 20160619070832) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,44 +52,23 @@ ActiveRecord::Schema.define(version: 20160604193331) do
     t.string   "status"
     t.integer  "user_id"
     t.integer  "store_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "store_categories_id"
+    t.integer  "store_sub_categories_id"
+    t.integer  "store_category_id"
+    t.integer  "store_sub_category_id"
+    t.date     "date"
+    t.time     "time"
+    t.boolean  "confirmed"
   end
 
+  add_index "bookings", ["store_categories_id"], name: "index_bookings_on_store_categories_id"
+  add_index "bookings", ["store_category_id"], name: "index_bookings_on_store_category_id"
   add_index "bookings", ["store_id"], name: "index_bookings_on_store_id"
+  add_index "bookings", ["store_sub_categories_id"], name: "index_bookings_on_store_sub_categories_id"
+  add_index "bookings", ["store_sub_category_id"], name: "index_bookings_on_store_sub_category_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
-
-  create_table "business_companies", force: :cascade do |t|
-    t.string   "company_name"
-    t.string   "website_url"
-    t.string   "company_email"
-    t.string   "contact_person"
-    t.string   "mobile"
-    t.string   "city"
-    t.string   "services"
-    t.string   "Pan"
-    t.string   "Bank_name"
-    t.string   "Account_no"
-    t.string   "IFSC"
-    t.string   "TIN"
-    t.string   "TAN"
-    t.string   "referal"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-  end
-
-  add_index "business_companies", ["email"], name: "index_business_companies_on_email", unique: true
-  add_index "business_companies", ["reset_password_token"], name: "index_business_companies_on_reset_password_token", unique: true
 
   create_table "business_companies_users", force: :cascade do |t|
     t.integer "business_company_id"
@@ -99,32 +78,6 @@ ActiveRecord::Schema.define(version: 20160604193331) do
   add_index "business_companies_users", ["business_company_id"], name: "index_business_companies_users_on_business_company_id"
   add_index "business_companies_users", ["user_id"], name: "index_business_companies_users_on_user_id"
 
-  create_table "business_individuals", force: :cascade do |t|
-    t.string   "name"
-    t.string   "mobile"
-    t.string   "city"
-    t.string   "Pan"
-    t.string   "Bank_name"
-    t.string   "Account_no"
-    t.string   "IFSC"
-    t.string   "referal"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-  end
-
-  add_index "business_individuals", ["email"], name: "index_business_individuals_on_email", unique: true
-  add_index "business_individuals", ["reset_password_token"], name: "index_business_individuals_on_reset_password_token", unique: true
-
   create_table "business_individuals_users", force: :cascade do |t|
     t.integer "business_individual_id"
     t.integer "user_id"
@@ -133,15 +86,25 @@ ActiveRecord::Schema.define(version: 20160604193331) do
   add_index "business_individuals_users", ["business_individual_id"], name: "index_business_individuals_users_on_business_individual_id"
   add_index "business_individuals_users", ["user_id"], name: "index_business_individuals_users_on_user_id"
 
+  create_table "store_categories", force: :cascade do |t|
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "store_sub_categories", force: :cascade do |t|
+    t.string   "subcategory"
+    t.integer  "store_category_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "store_sub_categories", ["store_category_id"], name: "index_store_sub_categories_on_store_category_id"
+
   create_table "stores", force: :cascade do |t|
     t.string   "store_name"
     t.string   "name"
     t.string   "mobile"
-    t.string   "store_type"
-    t.string   "city"
-    t.string   "print_bill"
-    t.integer  "delivery_persons"
-    t.integer  "delivery_range"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -170,9 +133,6 @@ ActiveRecord::Schema.define(version: 20160604193331) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "mobile"
-    t.string   "house_no"
-    t.string   "locality"
-    t.string   "pincode"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -186,6 +146,7 @@ ActiveRecord::Schema.define(version: 20160604193331) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
+    t.string   "image"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
