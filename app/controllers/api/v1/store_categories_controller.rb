@@ -27,7 +27,7 @@ end
 
 def show
 	#respond_with User.find(params[:id])
-	respond_with StoreCategory.find(params[:id]).store_sub_categories
+	render json: StoreCategory.find(params[:id]).store_sub_categories
 
 end
 
