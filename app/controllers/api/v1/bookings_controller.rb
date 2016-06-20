@@ -1,6 +1,6 @@
 class Api::V1::BookingsController < Api::V1::BaseApiController
   respond_to :json
-   # before_action :authenticate_with_token!#, only: [:create,:update,:destroy]
+    before_action :authenticate_with_token!#, only: [:create,:update,:destroy]
 
    def index
 
@@ -19,11 +19,11 @@ class Api::V1::BookingsController < Api::V1::BaseApiController
 
 
   def hired
-  	  #respond_with Booking.where(["user_id = ? and store_id <> '' ", current_user.id  ])
+  	  render json: Booking.where(["user_id = ? and store_id <> '' ", current_user.id  ])
   end
 
   def open
-  respond_with Booking.all
+  render json: Booking.all
   #	respond_with Booking.where('(user_id = ? and confirmed = ? )', current_user.id, true  )
   end
 
