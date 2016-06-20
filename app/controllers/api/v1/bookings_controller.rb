@@ -23,7 +23,7 @@ class Api::V1::BookingsController < Api::V1::BaseApiController
   end
 
   def open
-  	respond_with Booking.where('(user_id = ? and confirmed = "t" )', current_user.id  )
+  	respond_with Booking.where('(user_id = ? and confirmed = ? )', current_user.id, true  )
   end
 
 
