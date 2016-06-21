@@ -7,11 +7,11 @@ class Api::V1::StoresController < Api::V1::BaseApiController
   end
 
   def show
-  respond_with current_user.stores.find(params[:id])
+  render json: current_user.stores.find(params[:id])
 	end
     
     def storeswithlocation
-    respond_with Store.all.find_by(params[:city])
+    render json: Store.all.find_by(params[:city])
     end
 
 end

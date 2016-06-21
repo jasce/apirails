@@ -23,8 +23,8 @@ class Api::V1::BookingsController < Api::V1::BaseApiController
   end
 
   def open
-  render json: Booking.all
-  #	respond_with Booking.where('(user_id = ? and confirmed = ? )', current_user.id, true  )
+  
+  	render json: Booking.where('(user_id = ? and confirmed = ? )', current_user.id, true  )
   end
 
 
