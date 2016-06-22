@@ -1,5 +1,5 @@
 class Api::V1::BookingsController < Api::V1::BaseApiController
-  #respond_to :json
+  respond_to :json
     before_action :authenticate_with_token!#, only: [:create,:update,:destroy]
 
    def index
