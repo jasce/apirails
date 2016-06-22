@@ -24,6 +24,7 @@ namespace :api do
 		        collection do
 		          get :open
 		          get :hired
+		          get :openall
 		          end
 		      end
 
@@ -34,7 +35,7 @@ namespace :api do
 		    	end
 		    	
 			end
-			
+			get '/categories/:id/name' => 'store_categories#name', :as => 'name'
 			get '/categories' => 'store_categories#index', :as => 'categories'
 		    get '/categories/:id' => 'store_categories#show', :as => 'subcategories'
   

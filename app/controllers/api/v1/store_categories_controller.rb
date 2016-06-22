@@ -25,6 +25,11 @@ end
  #end
 #end
 
+def name 
+
+    render json: StoreCategory.find(params[:id]).category
+end
+
 def show
 	#respond_with User.find(params[:id])
 	render json: StoreCategory.find(params[:id]).store_sub_categories

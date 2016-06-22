@@ -26,6 +26,9 @@ class Api::V1::BookingsController < Api::V1::BaseApiController
   
   	render json: Booking.where('(user_id = ? and confirmed = ? )', current_user.id, true  )
   end
+  def openall
+    render json: Booking.where('(confirmed = ? )' , true)
+  end 
 
 
 
