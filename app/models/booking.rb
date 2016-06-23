@@ -1,5 +1,6 @@
 class Booking < ActiveRecord::Base
   before_create :set_status!
+  after_create :change_format!
 
   belongs_to :user
   belongs_to :store
@@ -34,6 +35,9 @@ def set_status!
 
   self.confirmed = true
   self.status = 'Unconfirmed' 
+end
+def change_format!
+    self.created_at   = self.created_at.strftime("%Y-%m-%d")
 end
 
 end
