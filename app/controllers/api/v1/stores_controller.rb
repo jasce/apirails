@@ -11,7 +11,12 @@ class Api::V1::StoresController < Api::V1::BaseApiController
 	end
     
     def storeswithlocation
-    render json: Store.all.find_by(params[:city])
+      
+       render json: Store.near(params[:search],10)
+       
+  #render json: Store.where("address LIKE ?", "%#{params[:search]}%")   
+
+  #  render json: Store.all
     end
 
 end
