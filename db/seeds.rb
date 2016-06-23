@@ -20,10 +20,10 @@ u3 = User.create!(name: 'JasmeetSi',email: 'jascee.gtbit@gmail.comno',password: 
 u4 = User.create!(name: 'JasmeetSin',email: 'jascee.gtbit@gmail.comnop',password: '12345678')
 
 # --------------------------------------- Stores  =------------------------------------------
-s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',password: '12345678')
-s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',password: '12345678')
-s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678')
-s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',password: '12345678')
+s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',password: '12345678',address:'312,Chand Nagar,New Delhi-110018')
+s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',password: '12345678',address:'312,DLF Phase,Gurgaon')
+s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678',address:'Z-5 , khyala, New Delhi')
+s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',password: '12345678',address: 'CB-153/8, Naraina, Ring Road, New Dehi')
 
 # --------------------------------------- Store Categories------------------------------------------
 sc1 = StoreCategory.create!(category: 'Hardware Material')

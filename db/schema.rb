@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619210101) do
+ActiveRecord::Schema.define(version: 20160622224040) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20160619210101) do
     t.date     "date"
     t.time     "time"
     t.boolean  "confirmed"
+    t.date     "booking_time"
+    t.string   "booking_date"
   end
 
   add_index "bookings", ["store_category_id"], name: "index_bookings_on_store_category_id"
@@ -112,6 +114,9 @@ ActiveRecord::Schema.define(version: 20160619210101) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "stores", ["email"], name: "index_stores_on_email", unique: true

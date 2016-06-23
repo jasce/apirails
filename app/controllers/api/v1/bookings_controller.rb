@@ -8,7 +8,8 @@ class Api::V1::BookingsController < Api::V1::BaseApiController
    #respond_with Booking.where(["user_id = ? and store_id <> '' ", current_user.id  ])#Booking.search(params)
 
     # --------------------------------- Correspond to All Leads associated with current User ----------------------
-    render json:  Booking.where("user_id = ? ", current_user.id )
+    #render json:  Booking.where("user_id = ? ", current_user.id )
+    render json: Booking.all
 
    # --------------------------------- Correspond to Open Leads associated with current User ----------------------
    #respond_with Booking.where(:store_id => nil)
