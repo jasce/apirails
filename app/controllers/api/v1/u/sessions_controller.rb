@@ -1,5 +1,5 @@
 # file: app/controller/api/v1/sessions_controller.rb
-class Api::V1::SessionsController < Devise::SessionsController
+class Api::V1::U::SessionsController < Devise::SessionsController
   include Authenticable
  #acts_as_token_authentication_handler_for User
 
@@ -32,7 +32,7 @@ class Api::V1::SessionsController < Devise::SessionsController
       sign_in user, store: false
       user.generate_authentication_token!
       user.save
-      render json: user, status: 200, location: [:api,:v1, user]
+      render json: user, status: 200
     else
       render json: { errors: "Invalid email or password" }, status: 422
     end
