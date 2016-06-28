@@ -1,6 +1,6 @@
 class Api::V1::S::UsersController < Api::V1::BaseApiController
 #before_filter :authenticate_user_from_token!
-  before_action :authenticate_with_store_token!, only: [:update, :destroy]
+ # before_action :authenticate_with_store_token!, only: [:update, :destroy]
  respond_to :json
  #def index
 #	if current_user
