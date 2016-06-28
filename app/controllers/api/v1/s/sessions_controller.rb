@@ -5,7 +5,7 @@ class Api::V1::S::SessionsController < Devise::SessionsController
 
     skip_before_filter :verify_signed_out_store
    # skip_authorization_check only: [:create, :failure, ,  :new]    
-# before_filter :authenticate_with_store_token!, except: [:new, :create]
+before_filter :authenticate_with_store_token!, except: [:new, :create]
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 

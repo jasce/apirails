@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20160627160215) do
     t.date     "date"
     t.time     "time"
     t.boolean  "confirmed"
-    t.date     "booking_time"
     t.string   "booking_date"
   end
 

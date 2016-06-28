@@ -1,6 +1,6 @@
 class Api::V1::S::BookingsController < Api::V1::BaseApiController
   respond_to :json
-   # before_action :authenticate_with_store_token!#, only: [:create,:update,:destroy]
+    before_filter :authenticate_with_store_token!#, only: [:create,:update,:destroy]
 
    def index
 
