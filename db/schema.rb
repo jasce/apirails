@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627160215) do
+ActiveRecord::Schema.define(version: 20160628192342) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160627160215) do
     t.date     "date"
     t.time     "time"
     t.boolean  "confirmed"
+    t.date     "booking_time"
     t.string   "booking_date"
   end
 
@@ -148,6 +149,7 @@ ActiveRecord::Schema.define(version: 20160627160215) do
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
     t.string   "image"
+    t.string   "picture"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
