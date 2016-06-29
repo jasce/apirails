@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629200833) do
+ActiveRecord::Schema.define(version: 20160629210105) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160629200833) do
     t.boolean  "confirmed"
     t.date     "booking_time"
     t.string   "booking_date"
+    t.string   "attachment"
   end
 
   add_index "bookings", ["store_category_id"], name: "index_bookings_on_store_category_id"

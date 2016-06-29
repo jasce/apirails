@@ -1,4 +1,6 @@
 class Booking < ActiveRecord::Base
+ 
+ mount_base64_uploader :attachment, BookingListUploader
   before_create :set_status!
 
   after_create :change_format!
