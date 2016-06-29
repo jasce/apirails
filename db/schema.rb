@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628192342) do
+ActiveRecord::Schema.define(version: 20160629200833) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20160628192342) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "authentication_token"
+    t.string   "picture"
   end
 
   add_index "stores", ["authentication_token"], name: "index_stores_on_authentication_token", unique: true
