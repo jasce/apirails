@@ -25,11 +25,16 @@ class Api::V1::U::BookingsController < Api::V1::BaseApiController
 
   def open
   
-  	render json: Booking.where('(user_id = ? and confirmed = ? )', current_user.id, true  )
+  	render json: Booking.where('(user_id = ? and confirmed = ? and status = ?)', current_user.id, true , "Unconfirmed"  )
   end
-  def openall
-    render json: Booking.where('(confirmed = ? )' , true)
-  end 
+  def responded
+    render json: current_user.bookings.where('(status = ? )', "Responded")   
+    
+  end
+  def responded_all
+  	render json: RespondBooking.select("*").joins(:booking).where(:bookings => {:user_id => current_user.id, :id => params[:id]})
+  end
+  
 
 
 
