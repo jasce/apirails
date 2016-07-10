@@ -29,7 +29,8 @@ namespace :api do
 		          get :open  # User Open Bookings
 		          get :responded
 		          get :hired  # User Hired Bookings		         
-		         get '/:id/responded_all' => 'bookings#responded_all' 
+		         get '/:id/responded_stores' => 'bookings#responded_stores' 
+		         get '/:id/responded_stores_count' => 'bookings#responded_stores_count' 
 		          end
 		      end
 

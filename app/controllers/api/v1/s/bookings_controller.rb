@@ -24,12 +24,14 @@ class Api::V1::S::BookingsController < Api::V1::BaseApiController
   end
 
   
+
+  
   def openall
     render json: Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed")
   end 
 
   def acceptbooking
-         render json: Booking.find(params[:id]).update(:store_id => current_store.id)
+        render json: Booking.find(params[:id]).update(:store_id => current_store.id)
       
   end
 
