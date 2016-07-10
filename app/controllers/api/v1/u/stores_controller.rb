@@ -7,7 +7,7 @@ class Api::V1::U::StoresController < Api::V1::BaseApiController
   end
 
   def show
-  render json: current_user.stores.find(params[:id])
+  render json: Store.find(params[:id])
 	end
     
     def storeswithlocation
