@@ -13,7 +13,9 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-
+   config.active_record.default_timezone = :local
+   config.active_record.default_timezone = 'Asia/Kolkata'
+  config.time_zone = 'Asia/Kolkata'
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like
