@@ -18,26 +18,41 @@ class Api::V1::U::BookingsController < Api::V1::BaseApiController
 
   end
 
-
-  def hired
-  	  render json: Booking.where(["user_id = ? and store_id <> '' ", current_user.id  ])
-  end
-
+#=--------------------------------------------------Open Tab ---------------------------------------------------
   def open
   
-  	render json: Booking.where('(user_id = ? and confirmed = ? and status = ?)', current_user.id, true , "Unconfirmed"  )
+  	render json: Booking.where('(user_id = ? and confirmed = ? and status = ?)', current_user.id, true , "Unconfirmed"  ).order("created_at desc")
   end
+#-------------------------------------------------Responded Tab --------------------------------------------
   def responded
-    render json: current_user.bookings.where('(status = ? )', "Responded")   
+    render json: current_user.bookings.where('(status = ? )', "Responded").order("created_at desc")  
     
   end
-  def responded_all
-  	render json: RespondBooking.select("*").joins(:booking).where(:bookings => {:user_id => current_user.id, :id => params[:id]})
+ 
+ def responded_stores
+    render json: RespondBooking.where(:booking_id => params[:id]).joins(:booking).where(:bookings => {:user_id => current_user.id,}).order("created_at desc")    
   end
-  
 
+  def responded_stores_count
+    render json: { count: RespondBooking.where(:booking_id => params[:id]).joins(:booking).where(:bookings => {:user_id => current_user.id,}).count }
+  end
+#------------------------------------------------ Hire Tab ---------------------------------------------------- 
 
+  def hired
+      render json: Booking.where(["user_id = ? and status = ? ", current_user.id , "Hired" ]).order("created_at desc")
+  end
 
+  def hire_store
+    @response = RespondBooking.find_by(:store_id => params[:store_id])
+     booking = current_user.bookings.find(params[:id])
+    if booking.update(:store_id => params[:store_id] , :discount => @response.discount , :status => "Hired")
+    render json: booking , status: 200
+    else
+      render json: { errors: booking.errors }, status: 422
+    end
+  end
+
+# ----------------------------------------------------End Custom Actions --------------------------------------
   def show
     render json: Booking.find(params[:id])
   end

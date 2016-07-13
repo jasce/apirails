@@ -13,6 +13,7 @@ AdminUser.destroy_all
 StoreCategory.destroy_all
 StoreSubCategory.destroy_all
 Booking.destroy_all
+RespondBooking.destroy_all
 # --------------------------------------- Users  =------------------------------------------
 u1 = User.create!(name: 'Jasmeet',email: 'jascee.gtbit@gmail.comz',password: '12345678')
 u2 = User.create!(name: 'JasmeetS',email: 'jascee.gtbit@gmail.comn',password: '12345678')
