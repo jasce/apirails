@@ -30,13 +30,6 @@ class Api::V1::S::BookingsController < Api::V1::BaseApiController
     render json: Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed").order("created_at desc")
   end 
 
-  def acceptbooking
-        render json: Booking.find(params[:id]).update(:store_id => current_store.id)
-      
-  end
-
-
-
   def show
     render json: Booking.find(params[:id])
   end

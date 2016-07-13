@@ -58,12 +58,12 @@ namespace :api do
 		    end
 		    resources :stores , :only => [:create,:delete,:update]
 		    resources :bookings, :only => [] do
-		    	resources :respond_bookings, :only => [:create]
+		    	resources :respond_bookings, :only => [:create,]
 		        collection do
 		          get :responded  # User Open Bookings
 		          get :hired  # User Hired Bookings
 		          get :openall # All Users Open Bookings
-		          put 'acceptbooking/:id' => 'bookings#acceptbooking', :as => 'accept_booking'  # Grab the booking with the id and update store_id field		          
+		                   
 		          end
 		      end
 		      resources :respond_bookings, :only => [:index]
