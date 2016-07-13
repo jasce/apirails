@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20160707154845) do
     t.date     "date"
     t.time     "time"
     t.boolean  "confirmed"
-    t.date     "booking_time"
     t.string   "booking_date"
     t.string   "attachment"
     t.string   "address"
@@ -149,6 +148,9 @@ ActiveRecord::Schema.define(version: 20160707154845) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "mobile"
+    t.string   "house_no"
+    t.string   "locality"
+    t.string   "pincode"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -162,7 +164,6 @@ ActiveRecord::Schema.define(version: 20160707154845) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
-    t.string   "image"
     t.string   "picture"
   end
 
