@@ -8,8 +8,8 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-  config.active_record.default_timezone = 'Asia/Kolkata'
-  config.time_zone = 'Asia/Kolkata'
+ # config.active_record.default_timezone = 'Asia/Kolkata'
+  #config.time_zone = 'Asia/Kolkata'
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false

@@ -28,7 +28,7 @@ class Api::V1::S::BookingsController < Api::V1::BaseApiController
   
   def openall
 
-  	@booking = Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed")
+  	@booking = Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed").order("created_at desc")
     if stale?(@booking)
     	render json: @booking
 	end
