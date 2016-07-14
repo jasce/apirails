@@ -55,11 +55,17 @@ sc5 = StoreCategory.create!(category: 'Construction Material')
 #u2.bookings.create!(status: 'Pending',store_category: sc1 ,address:'3442 shyam Road,Gurgaon',store_sub_category: ssc12 )
 #u4.bookings.create!(status: 'Complete',store_category: sc2 ,address:'312 hajsn,new delhi', store_sub_category: ssc21 )
 #u1.bookings.create!(status: 'Pending',store_category: sc3 ,address:'312 hajsn,naraina', store_sub_category: ssc32 )
-#u1.bookings.create!(status: 'Pending',store_category: sc2 ,address:'32 han,naraina', store_sub_category: ssc22 )
-#u2.bookings.create!(status: 'Complete',store_category: sc5,address:'2 hajddfv,naraina', store_sub_category: ssc51 )
-#u3.bookings.create!(status: 'Pending',store_category: sc4 ,address:'312 hadsfsfdn,naraina', store_sub_category: ssc42 )
-#u4.bookings.create!(status: 'Pending',store_category: sc4 ,address:'312 hajsdf,naraina', store_sub_category: ssc41 )
+bu1 = u1.bookings.create!(store_category: sc2 ,address:'32 han,naraina', store_sub_category: ssc22 )
+bu2 = u2.bookings.create!(store_category: sc5,address:'2 hajddfv,naraina', store_sub_category: ssc51 )
+bu3 =  u3.bookings.create!(store_category: sc4 ,address:'312 hadsfsfdn,naraina', store_sub_category: ssc42 )
+bu4 = u4.bookings.create!(store_category: sc4 ,address:'312 hajsdf,naraina', store_sub_category: ssc41 )
 
+#---------------------------------------------Respond Bookings -------------------------------------------------
+#s1.respond_bookings.create!(discount: '10', booking_id: bu1)
+#s1.respond_bookings.create!(discount: '15', booking_id: bu2)
+#s2.respond_bookings.create!(discount: '12',booking_id: bu1)
+#s2.respond_bookings.create!(discount: '20', booking_id: bu4)
+#----------------------------------------------------------------------------------------------------------------
 AdminUser.create!(email: 'jascee.gtbit@gmail.com', password: 'unclejoy', password_confirmation: 'unclejoy')
 AdminUser.create!(email: 'manpreet28111995@gmail.com', password: 'unclejoy', password_confirmation: 'unclejoy')
 

@@ -3,9 +3,9 @@ class Booking < ActiveRecord::Base
  mount_base64_uploader :attachment, BookingListUploader
   before_create :set_status!
 
-  after_create :change_format!
+  
 
-  after_create :set_book_time! 
+  
 
 
   belongs_to :user
@@ -39,21 +39,13 @@ def self.search(params = {})
     bookings
   end
 
-  def set_book_time!
-  time = Time.now
-  self.booking_date = time.strftime("%d-%m-%Y")  
-end
+ 
   private
 def set_status!
 
   self.confirmed = true
   self.status = 'Unconfirmed' 
 end
-def change_format!
-    self.created_at   = self.created_at.strftime("%Y-%m-%d")
-end
-
-
 end
 
 
