@@ -11,15 +11,15 @@ class Store < ActiveRecord::Base
 	has_many :users,through: :bookings
 	validates :email, presence: true
 	has_many :respond_bookings
+	belongs_to :store_category
 
 	geocoded_by :address
 	after_validation :geocode, :if => :address_changed?
 
 
-
-
-
-
+def store_category_attributes=(attributes)
+	self.store_category = StoreCategory.find_or_create_by(category: attributes[:category])
+end
 
 
 def generate_authentication_token!
