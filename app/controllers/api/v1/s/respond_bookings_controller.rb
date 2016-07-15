@@ -5,7 +5,7 @@ class Api::V1::S::RespondBookingsController < Api::V1::BaseApiController
 
 
 	 def index
-	 	render json: current_store.respond_bookings
+	 	render json:  current_store.respond_bookings.all.joins(:booking).where(:bookings => {:status => "Responded",}).order("created_at desc")  
 	 end
 
 	 def create
