@@ -38,7 +38,7 @@ before_filter :authenticate_with_store_token!, except: [:new, :create]
     end
     #--------------------------------------- This Works as well with full store record --------------
   end
-
+  
 
 
   def destroy

@@ -14,6 +14,18 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
    config.active_record.default_timezone = :local
+   config.action_mailer.default_url_options = { :host => 'unclejoy.herokuapp.com' }
+ActionMailer::Base.smtp_settings = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => 'heroku.com',
+  :enable_starttls_auto => true
+}
+
+   
  #  config.active_record.default_timezone = 'Asia/Kolkata'
  # config.time_zone = 'Asia/Kolkata'
   # Enable Rack::Cache to put a simple HTTP cache in front of your application

@@ -25,6 +25,7 @@ s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',store_name: 'Medha',p
 s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',store_name: 'Lalit Sablania',password: '12345678',address:'312,DLF Phase,Gurgaon')
 s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678',store_name: 'Medha Singh',address:'Z-5 , khyala, New Delhi')
 s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',store_name: 'Harish',password: '12345678',address: 'CB-153/8, Naraina, Ring Road, New Dehi')
+s4 = Store.create!(name: 'Jasmeet',email: 'jasmeetsinghosan@gmail.com',store_name: 'Harish',password: '12345678',address: 'CB-153/8, Naraina, New Dehi')
 
 # --------------------------------------- Store Categories------------------------------------------
 sc1 = StoreCategory.create!(category: 'Hardware Material')

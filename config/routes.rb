@@ -19,6 +19,7 @@ namespace :api do
   		# User app routes
   		namespace :u do
 		    devise_scope :user do
+		    	post 'password/reset' => 'passwords#reset_password', :as => 'user_reset_password'
 		      post 'login' => 'sessions#create', :as => 'user_login'  # User App Login route
   		      delete 'logout' => 'sessions#destroy', :as => 'user_logout'# User App Logout route
 		    end		   
@@ -53,6 +54,7 @@ namespace :api do
 		namespace :s do
 
 			devise_scope :store do
+				post 'password/reset' => 'passwords#reset_password', :as => 'store_reset_password'
 		      post 'login' => 'sessions#create', :as => 'store_login'
 		      delete 'logout' => 'sessions#destroy', :as => 'store_logout'
 		    end
