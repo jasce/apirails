@@ -60,6 +60,9 @@ class Api::V1::U::BookingsController < Api::V1::BaseApiController
    def create
     booking = current_user.bookings.build(booking_params)
     if booking.save
+      params[:booking][:attachment_data].each do |file|
+        booking.attachments.create!(attachment: file)
+      end
       render json: booking, status: 201#, location: [:api,:v1,:user, booking]
     else
       render json: { errors: booking.errors }, status: 422
@@ -85,7 +88,7 @@ class Api::V1::U::BookingsController < Api::V1::BaseApiController
   private
 
     def booking_params
-      params.require(:booking).permit(:store_category_id,:store_sub_category_id,:date,:time,:attachment,:address)
+      params.require(:booking).permit(:store_category_id,:store_sub_category_id,:date,:time,:attachment,:attachment_data => [])
     end
   end
 

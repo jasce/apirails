@@ -1,6 +1,6 @@
 class Booking < ActiveRecord::Base
  
- mount_base64_uploader :attachment, BookingListUploader
+ 
   before_create :set_status!
 
   
@@ -13,6 +13,8 @@ class Booking < ActiveRecord::Base
   belongs_to :store_category
   belongs_to :store_sub_category
   has_many :respond_bookings
+  has_many :attachments
+  attr_accessor :attachment_data
 
   validates :user_id , presence: true
 
