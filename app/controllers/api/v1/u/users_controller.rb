@@ -16,9 +16,9 @@ class Api::V1::U::UsersController < Api::V1::BaseApiController
 def create
     user = User.new(user_params)
     if user.save
-      SendCode.new.send_sms(:to => user.mobile, :body => "Your OTP of my awesome website is #{user.otp_code}" )
+     # SendCode.new.send_sms(:to => user.mobile, :body => "Your OTP of my awesome website is #{user.otp_code}" )
 
-      render json: user.id, status: 201
+      render json: user, status: 201
 
     else
       render json: { errors: user.errors }, status: 422
