@@ -60,10 +60,12 @@ namespace :api do
 				post 'password/reset' => 'passwords#reset_password', :as => 'store_reset_password'
 		      post 'login' => 'sessions#create', :as => 'store_login'
 		      delete 'logout' => 'sessions#destroy', :as => 'store_logout'
+
+		      post "stores/verify" => 'stores#verify'
 		    end
 		    resources :stores , :only => [:create,:delete,:update]
 		    resources :bookings, :only => [] do
-		    	resources :respond_bookings, :only => [:create,]
+		    	resources :respond_bookings, :only => [:create]
 		        collection do
 		          get :responded  # User Open Bookings
 		          get :hired  # User Hired Bookings

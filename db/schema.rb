@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717222424) do
+ActiveRecord::Schema.define(version: 20160718085603) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20160717222424) do
     t.date     "date"
     t.string   "time"
     t.boolean  "confirmed"
-    t.date     "booking_time"
     t.string   "booking_date"
     t.string   "attachment"
     t.string   "address"
@@ -143,6 +142,7 @@ ActiveRecord::Schema.define(version: 20160717222424) do
     t.string   "authentication_token"
     t.string   "picture"
     t.integer  "store_category_id"
+    t.string   "otp_secret_key"
   end
 
   add_index "stores", ["authentication_token"], name: "index_stores_on_authentication_token", unique: true
@@ -161,6 +161,9 @@ ActiveRecord::Schema.define(version: 20160717222424) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "mobile"
+    t.string   "house_no"
+    t.string   "locality"
+    t.string   "pincode"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -174,7 +177,6 @@ ActiveRecord::Schema.define(version: 20160717222424) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
-    t.string   "image"
     t.string   "picture"
     t.string   "authy_id"
     t.string   "otp_secret_key"

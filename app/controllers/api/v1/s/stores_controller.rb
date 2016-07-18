@@ -26,11 +26,25 @@ class Api::V1::S::StoresController < Api::V1::BaseApiController
 def create
     store = Store.new(store_params)
     if store.save
-      render json: store, status: 201
+      SendCode.new.send_sms(:to => store.mobile, :body => "Your OTP of my awesome website is #{store.otp_code}" )
+      render json: store.id, status: 201
     else
       render json: { errors: store.errors }, status: 422
     end
 end
+
+def verify
+  store = Store.find(params[:store][:id])
+  otp = params[:store][:otp]
+  @otp = otp.to_s
+    if(user.authenticate_otp( @otp , drift: 120))
+       render json: user, status: 201      
+    else
+        render json: { errors: "Wrong OTP ! Try Again"}
+    end
+end
+
+
 
 def update
     store = Store.find(params[:id])

@@ -1,6 +1,9 @@
+require File.join File.dirname(__FILE__), 'send_code'
+
 class Store < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_one_time_password
    mount_base64_uploader :picture, StorePictureUploader
 
     before_create :generate_authentication_token!
