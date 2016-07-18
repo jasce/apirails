@@ -1,3 +1,5 @@
+require File.join File.dirname(__FILE__), 'send_code'
+
 class Booking < ActiveRecord::Base
  
  
