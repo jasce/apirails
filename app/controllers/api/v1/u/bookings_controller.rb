@@ -88,7 +88,7 @@ class Api::V1::U::BookingsController < Api::V1::BaseApiController
   private
 
     def booking_params
-      params.require(:booking).permit(:store_category_id,:store_sub_category_id,:date,:time,:attachment,:attachment_data => [])
+      params.require(:booking).permit(:store_category_id,:store_sub_category_id,:date,:time,:address,:attachment_data => [])
     end
   end
 
