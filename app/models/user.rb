@@ -1,6 +1,11 @@
+require File.join File.dirname(__FILE__), 'send_code'
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+ 
+
+   has_one_time_password
   before_create :generate_authentication_token!
 
 mount_base64_uploader :picture, PictureUploader

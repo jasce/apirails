@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717184719) do
+ActiveRecord::Schema.define(version: 20160717222424) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -176,6 +176,8 @@ ActiveRecord::Schema.define(version: 20160717184719) do
     t.string   "authentication_token"
     t.string   "image"
     t.string   "picture"
+    t.string   "authy_id"
+    t.string   "otp_secret_key"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
