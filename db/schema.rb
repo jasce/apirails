@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718085603) do
+ActiveRecord::Schema.define(version: 20160719194623) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20160718085603) do
     t.string   "picture"
     t.integer  "store_category_id"
     t.string   "otp_secret_key"
+    t.boolean  "verified"
   end
 
   add_index "stores", ["authentication_token"], name: "index_stores_on_authentication_token", unique: true
@@ -179,6 +180,7 @@ ActiveRecord::Schema.define(version: 20160718085603) do
     t.string   "picture"
     t.string   "authy_id"
     t.string   "otp_secret_key"
+    t.boolean  "verified"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true

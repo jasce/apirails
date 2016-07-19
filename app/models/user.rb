@@ -3,7 +3,7 @@ require File.join File.dirname(__FILE__), 'send_code'
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
- 
+ before_create :set_verified!
 
    has_one_time_password
   before_create :generate_authentication_token!
@@ -24,6 +24,10 @@ mount_base64_uploader :picture, PictureUploader
 #	self.authentication_token
 	
 #end
+def set_verified_true
+	self.verified = true
+	self.save
+end
 
 
 def generate_authentication_token!
@@ -33,6 +37,12 @@ def generate_authentication_token!
 		begin
       	self.authentication_token = Devise.friendly_token
     	end while self.class.exists?(authentication_token: authentication_token)	
+	end
+
+	private
+	def set_verified!
+		self.verified = false
+		true
 	end
 end
 

@@ -26,6 +26,7 @@ namespace :api do
 		    resources :users, :only => [:create,:update,:destroy] # User Crud Routes
 		    
  			 post "users/verify" => 'users#verify'
+ 			 post "users/resend" => 'users#resend'
   			
 
 		      resources :bookings, :only => [:update,:destroy,:create,:index] do

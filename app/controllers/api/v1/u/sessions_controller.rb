@@ -28,13 +28,18 @@ class Api::V1::U::SessionsController < Devise::SessionsController
     user_email = params[:session][:email]
     user = user_email.present? && User.find_by(email: user_email)
 
-    if user.valid_password? user_password
+    if user.valid_password? user_password && user.verified
       sign_in user, store: false
       user.generate_authentication_token!
       user.save
       render json: user, status: 200
     else
-      render json: { errors: "Invalid email or password" }, status: 422
+      if user.verified
+        render json: { errors: "Invalid email or password" }, status: 422
+      else
+         render json: { errors: "Please first verify your account using otp" }, status: 422
+      end
+      
     end
     #--------------------------------------- This Works as well with full user record --------------
   end

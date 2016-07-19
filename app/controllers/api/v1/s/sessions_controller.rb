@@ -28,13 +28,17 @@ before_filter :authenticate_with_store_token!, except: [:new, :create]
     store_email = params[:session][:email]
     store = store_email.present? && Store.find_by(email: store_email)
 
-    if store.valid_password? store_password
+    if store.valid_password?(store_password) && store.verified
       sign_in store, store: false
       store.generate_authentication_token!
       store.save
       render json: store, status: 200
     else
-      render json: { errors: "Invalid email or password" }, status: 422
+      if store.verified 
+        render json: { errors: "Invalid email or password" }, status: 422
+      else
+         render json: { errors: "Please first verify your account using otp" }, status: 422
+      end
     end
     #--------------------------------------- This Works as well with full store record --------------
   end

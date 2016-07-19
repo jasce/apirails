@@ -16,7 +16,7 @@ class Api::V1::U::UsersController < Api::V1::BaseApiController
 def create
     user = User.new(user_params)
     if user.save
-     SendCode.new.send_sms(:to => user.mobile, :body => "Your OTP of my awesome website is #{user.otp_code}" )
+     SendCode.new.send_sms(:to => user.mobile, :body => "Your OTP for verifying your account at Unclejoy is #{user.otp_code}" )
 
       render json: {id: user.id}, status: 201
 
@@ -29,11 +29,24 @@ def verify
   otp = params[:user][:otp]
   @otp = otp.to_s
     if(user.authenticate_otp( @otp , drift: 120))
+        user.set_verified_true
        render json: user, status: 201      
     else
         render json: { errors: "Wrong OTP ! Try Again"}
     end
 end
+
+def resend 
+  user = User.find(params[:id])
+  if user.present?
+      SendCode.new.send_sms(:to => user.mobile, :body => "Your OTP for verifying your account at Unclejoy is #{user.otp_code}" )
+      render json: {alert: "Successfully Sent OTP"}, status: 201
+  else
+    render json: {alert: "Failed to Send OTP"}
+   
+  end
+end
+
 
 def update
     user = current_user
