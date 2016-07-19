@@ -1,5 +1,5 @@
 class Api::V1::S::StoresController < Api::V1::BaseApiController
- before_action :authenticate_with_store_token!, except: [:create,:verify]
+ before_action :authenticate_with_store_token!, except: [:create,:verify,:resend]
   respond_to :json
 
   #def index
@@ -26,7 +26,7 @@ class Api::V1::S::StoresController < Api::V1::BaseApiController
 def create
     store = Store.new(store_params)
     if store.save
-      SendCode.new.send_sms(:to => store.mobile, :body => "Your OTP of my awesome website is #{store.otp_code}" )
+      SendCode.new.send_sms(:to => store.mobile, :body => "Your OTP for verifying your account at Unclejoy is #{store.otp_code}" )
       render json: { id: store.id}, status: 201
     else
       render json: { errors: store.errors }, status: 422
@@ -42,6 +42,18 @@ def verify
     else
         render json: { errors: "Wrong OTP ! Try Again"}
     end
+end
+
+def resend 
+  store = Store.find(params[:id])
+  if store.present?
+      SendCode.new.send_sms(:to => store.mobile, :body => "Your OTP for verifying your account at Unclejoy is #{store.otp_code}" )
+      render json: {alert: "Successfully Sent OTP"}, status: 201
+  else
+    render json: {alert: "Failed to Send OTP"}
+
+    
+  end
 end
 
 

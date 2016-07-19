@@ -62,6 +62,7 @@ namespace :api do
 		      delete 'logout' => 'sessions#destroy', :as => 'store_logout'
 
 		      post "stores/verify" => 'stores#verify'
+		      post "stores/resend" => 'stores#resend'
 		    end
 		    resources :stores , :only => [:create,:delete,:update]
 		    resources :bookings, :only => [] do
