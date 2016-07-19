@@ -26,8 +26,8 @@ class Api::V1::S::StoresController < Api::V1::BaseApiController
 def create
     store = Store.new(store_params)
     if store.save
-      #SendCode.new.send_sms(:to => store.mobile, :body => "Your OTP of my awesome website is #{store.otp_code}" )
-      render json: store, status: 201
+      SendCode.new.send_sms(:to => store.mobile, :body => "Your OTP of my awesome website is #{store.otp_code}" )
+      render json: { id: store.id}, status: 201
     else
       render json: { errors: store.errors }, status: 422
     end
