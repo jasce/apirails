@@ -1,5 +1,5 @@
 class Api::V1::S::StoresController < Api::V1::BaseApiController
- before_action :authenticate_with_store_token!, except: [:create]
+ before_action :authenticate_with_store_token!, except: [:create,:verify]
   respond_to :json
 
   #def index
