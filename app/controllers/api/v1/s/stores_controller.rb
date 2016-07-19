@@ -37,7 +37,7 @@ def verify
   store = Store.find(params[:store][:id])
   otp = params[:store][:otp]
   @otp = otp.to_s
-    if(user.authenticate_otp( @otp , drift: 120))
+    if(store.authenticate_otp( @otp , drift: 120))
        render json: store, status: 201      
     else
         render json: { errors: "Wrong OTP ! Try Again"}
