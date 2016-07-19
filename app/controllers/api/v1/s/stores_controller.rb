@@ -39,7 +39,7 @@ def verify
   @otp = otp.to_s
     if(store.authenticate_otp( @otp , drift: 120))
        render json: store, status: 201      
-    else
+    else nn n
         render json: { errors: "Wrong OTP ! Try Again"}
     end
 end
