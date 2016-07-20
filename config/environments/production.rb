@@ -14,7 +14,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
    config.active_record.default_timezone = :local
-   config.action_mailer.default_url_options = { :host => 'unclejoy.herokuapp.com' }
+   config.action_mailer.default_url_options = { :host => 'ujapi.herokuapp.com' }
 ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
   :port           => '587',
