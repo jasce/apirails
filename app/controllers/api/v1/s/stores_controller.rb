@@ -33,6 +33,15 @@ def create
     end
 end
 
+def update
+    store = current_store
+  if store.update(store_params)
+    render json: store, status: 200
+  else
+    render json: { errors: store.errors }, status: 422
+  end
+end
+
 def verify
   store = Store.find(params[:store][:id])
   otp = params[:store][:otp]

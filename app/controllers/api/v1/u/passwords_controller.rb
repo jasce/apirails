@@ -10,9 +10,6 @@ class Api::V1::U::PasswordsController < Devise::PasswordsController
 		end
 	end
 
-	 protected
-  def after_sending_reset_password_instructions_path_for(resource_name)
-    
-     end
+	
 
 end
