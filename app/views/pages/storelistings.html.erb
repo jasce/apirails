@@ -24,34 +24,19 @@
 </center>
 </div>
 </div>
-<div class="row ">
-  <div class="col-md-3">
-      <div class="col-md-12">  
-       <img src="hitw.png" alt="store" ><p>Store Name</p> <p> Address</p></div>
-       <div class="col-md-12"> 
-       <img src="hitw.png" alt="store"><p>Store Name</p><p> Address </p>
-       </div> 
+
+<% @stores.in_groups_of(4,false).each do |stores| %>
+<div class="row ">  
+      <% stores.each do |store| %>
+        <div class="col-md-3">     
+               <img src="hitw.png" alt="store" ><p><%= store.store_name %></p> <p><%= store.address %></p>
+                   
+        </div> 
+      <% end %>
   </div>
-  <div class="col-md-3">
-      <div class="col-md-12">  
-       <img src="hitw.png" alt="store" ><p>Store Name</p> <p> Address</p></div>
-       <div class="col-md-12"> 
-       <img src="hitw.png" alt="store"><p>Store Name</p><p> Address </p>
-       </div>  
-  </div>
-  <div class="col-md-3">
-     <div class="col-md-12">  
-       <img src="hitw.png" alt="store" ><p>Store Name</p> <p> Address</p></div>
-       <div class="col-md-12"> 
-       <img src="hitw.png" alt="store"><p>Store Name</p><p> Address </p>
-       </div> 
-  </div>
-  <div class="col-md-3">
-     <div class="col-md-12">  
-       <img src="hitw.png" alt="store" ><p>Store Name</p> <p> Address</p></div>
-       <div class="col-md-12"> 
-       <img src="hitw.png" alt="store"><p>Store Name</p><p> Address </p>
-       </div>   </div>
+<% end %>
+  
+  <div class="row">
   <div class="col-md-offset-4 col-md-4">
     <button class="btn btn-block " id="view"> View all</button>
   </div>
@@ -88,7 +73,7 @@
       Increase your income </div>
   </div></div>
   <div class="col-md-3"></div></div>
-  <div class="row"> 
+  <div class="row"> <br><br><br>
   <center><h2> How it Works ?</h2></center>
 <div id="whystore" class="row">
 
@@ -123,7 +108,7 @@ Send quotes &amp; Get Hired
 
 </div></div>
     
-<div id="download_btn" class="row">
+<div id="download_btn" class="row"><br><br><br>
   <h2> <center>Download our App</center></h2><br>
     <div class="col-md-2"></div>
     <div class="col-md-4" style="border-right:2px solid #e9e9e9;"><h4><b>For Users &amp; Professionals</b></h4> <br><a href="#"><img width="200" src="googleplay.png"/></a><br> Coming Soon....</div>
