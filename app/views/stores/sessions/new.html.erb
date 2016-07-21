@@ -1,26 +1,61 @@
-<h2>Log in</h2>
+<h2></h2>
+<div class="container">
+<div class="row">
+          
+              <div class="col-lg-offset-4 col-lg-4"  id="bdr">
+              <h2 align="center" style="margin:0;">Store Sign In</h2>
+              <h3 align="center">Unclejoy says Sweet Hi!</h3>
+              <div class="row" style="padding:15px;">
+              <p style="color:#ff0000;" class="visible-xs">Not a Registered Store Yet?</p>
+              <div class="col-lg-6"><a href="#"><%= link_to "Sign In",new_store_session_path,id:"sb_btn", class:"btn btn-default  btn-block hidden-xs"%></div> 
+              <div class="col-lg-6"><%= link_to "Sign Up", new_store_registration_path, id:"sb_btn" ,class:"btn btn-info btn-block" %></div> 
+              </div>
+              <br><br>
+
+
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="form-group">
+    
+    <%= f.email_field :email, autofocus: true ,class: "form-control",placeholder: "Enter your email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="form-group">
+    
+    <%= f.password_field :password, autocomplete: "off",class: "form-control",placeholder: "Enter your password" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div id="le">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
-
+  <%= link_to "Forgot your password?", new_store_password_path,id: "fl" %>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in",class: "btn btn-info btn-block",id: "b_signup" %>
   </div>
 <% end %>
 
-<%= render "stores/shared/links" %>
+<p align="center" style=" margin:12px 0px 12px 0px;">Or</p>
+   <button class="btn btn-primary btn-block fa fa-facebook" id="f_btn" > <span >Sign In with Facebook </span></button>
+   <button class="btn btn-primary btn-block fa fa-google-plus" id="g_btn" > <span >Sign In with Google</span></button>       
+        
+
+             
+              
+              </div>
+
+              </div>
+        </div>
+     
+
+        
+
+
+
+
+
+
+<%= render "users/shared/links" %>

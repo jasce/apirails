@@ -1,6 +1,26 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Unclejoy - India's first online material store marketplace </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" href="logo.png"/>
+<!-- Latest compiled and minified CSS -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,700,600' rel='stylesheet' type='text/css'>
+<!--<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">-->
+
+<!-- Optional theme -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+
+
+
+
   <title>Unclejoy</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -8,32 +28,143 @@
 </head>
 
 <body>
-<div id = "top_a">
-<% if user_signed_in? %>
-	<%= link_to "Sign Out User",destroy_user_session_path,method: :delete %>
-	
-<% elsif store_signed_in?%>
-	<%= link_to "Sign Out Store",destroy_store_session_path,method: :delete %>
-	
-<% else%>
-	<%= link_to "Welcome", root_path %>
-	<div style="float: right;">
-	<%= link_to "User(Sign In)", new_user_session_path %>
-	<%= link_to "Store(Sign In)", new_store_session_path %>
-	</div>
-<% end %>
-</div>
 
+<!--%   Navbar   %-->
+ <nav class="navbar navbar-default" style="min-height:90px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nb" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home">
+        <%= image_tag("logo.png",height: "70",width: "70")  %>
+      </a>
+      </div>
+      <% if user_signed_in? %>
+      <div  class="collapse navbar-collapse" id="nb">
+      <ul id="nav2" class="nav navbar-nav navbar-right">
+      
+        <li><a href="index.html"><span><img src="logo.png" width="45" height="45" class="">&nbsp;<%= current_user.name %></span></a></li>        
+        <li class="dropdown">
+			   <a href="" class="dropdown-toggle " data-toggle="dropdown">
+			   <span class="glyphicon glyphicon-menu-down"></span></a>
+			    <ul class="dropdown-menu">
+			      <li><a href="#">Profile</a></li>
+			      <li><a href="#">Dashboard</a></li>
+			      <li><a href="#">My Transactions</a></li>
+			      <li><a href="#">Help</a></li>
+			      <li><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+			    </ul>
+        </li>
+      </ul> 
+      </div>  
+
+       <%elsif store_signed_in? %>
+       	  <div  class="collapse navbar-collapse" id="nb">
+      <ul id="nav2" class="nav navbar-nav navbar-right">      
+        <li><a href="index.html"><span><img src="logo.png" width="45" height="45" class="">&nbsp;<%= current_store.name %></span></a></li>        
+        <li class="dropdown">
+			   <a href="" class="dropdown-toggle " data-toggle="dropdown">
+			   <span class="glyphicon glyphicon-menu-down"></span></a>
+			    <ul class="dropdown-menu">
+			      <li><a href="#">Profile</a></li>
+			      <li><a href="#">Dashboard</a></li>
+			      <li><a href="#">My Transactions</a></li>
+			      <li><a href="#">Help</a></li>
+			      <li><%= link_to "Sign Out",destroy_store_session_path,method: :delete %></li>
+			    </ul>
+        </li>
+      </ul> 
+      </div>  
+       <% else %>
+       		<div  class="collapse navbar-collapse" id="nb1">
+		       <ul class="nav navbar-nav navbar-right">
+			        <li><%= link_to "How it Works ?", how_it_works_path %></li>
+			        <li><%= link_to "Our store Listings" , store_listings_path %></li>		
+			        <li><%= link_to "Be a store partner",new_store_registration_path %></li>
+			        <li><%= link_to "Login", new_user_session_path %></li>
+			        <li><%= link_to "Store Login", new_store_session_path %></li>
+		      	</ul>
+		     </div>
+       <% end %>
+        
+    </div>
+  </div>
+
+</nav>
 
 
 <% if notice %>
-	 <p class="notice"><%= notice %></p>
-	 <% elsif alert %>
- 	<p class="alert"><%= alert %></p>
- <% end %>
+   <p class="notice" ><%= notice %></p>
+   <% elsif alert %>
+  <p class="alert" ><%= alert %></p>
+  <% end %>
 
 
 <%= yield %>
+
+
+
+
+<footer>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul>      
+     <li><a href="">Why Unclejoy?</a></li>
+     <li><a href="">Get your store listed.</a></li>
+     <li><a href="">How it works ?</a></li>
+     </ul>
+    </div>
+    <div class="col-md-3">
+    <ul type="none;">      
+     <li><a href="">Terms and Conditions</a></li>
+     <li><a href="">Privacy Policy</a></li>
+     <li><a href="">FAQs</a></li>
+    </ul>
+    </div>
+    <div class="col-md-3">
+      <ul>
+        <li><a href="">Contact Us</a></li>
+        <li><a href="">Team</a></li>
+        <li><a href="">Blog</a></li>
+      </ul>
+       
+      
+     </div>  
+    <div class="col-md-3">
+      <ul>      
+     <li><p style="color:#fff;">About the company</p></li>
+     <li><p>UNCLEJOY is an online web platform for booking local hardware, electricals, paint and wood & timber material store.</p></li></ul>
+     
+     
+    </div>
+    </div>
+  
+  </div>
+ <div class="row" id="row2">
+   <div class="col-md-12">
+    <ul style="text-align:center">
+    <li><a href=""><i class="fa fa-facebook"></i></a></li>
+    <li><a href=""><i class="fa fa-twitter"></i></a></li>
+    <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+    </ul>
+    </div>
+    <p>2015-16 &copy; Unclejoy Technology Private Limited - All rights reserved</p>
+  </div>  
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var fade_out = function() {
+  $(".notice,.alert").fadeOut().empty();
+}
+
+setTimeout(fade_out, 2500);
+</script>
 
 </body>
 </html>

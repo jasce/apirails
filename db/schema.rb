@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721020056) do
+ActiveRecord::Schema.define(version: 20160721031432) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20160721020056) do
   add_index "attachments", ["booking_id"], name: "index_attachments_on_booking_id"
 
   create_table "bookings", force: :cascade do |t|
-    t.string   "Service_type"
     t.string   "status"
     t.integer  "user_id"
     t.integer  "store_id"
@@ -67,9 +66,6 @@ ActiveRecord::Schema.define(version: 20160721020056) do
     t.date     "date"
     t.string   "time"
     t.boolean  "confirmed"
-    t.date     "booking_time"
-    t.string   "booking_date"
-    t.string   "attachment"
     t.string   "address"
     t.integer  "discount"
   end
@@ -78,22 +74,6 @@ ActiveRecord::Schema.define(version: 20160721020056) do
   add_index "bookings", ["store_id"], name: "index_bookings_on_store_id"
   add_index "bookings", ["store_sub_category_id"], name: "index_bookings_on_store_sub_category_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
-
-  create_table "business_companies_users", force: :cascade do |t|
-    t.integer "business_company_id"
-    t.integer "user_id"
-  end
-
-  add_index "business_companies_users", ["business_company_id"], name: "index_business_companies_users_on_business_company_id"
-  add_index "business_companies_users", ["user_id"], name: "index_business_companies_users_on_user_id"
-
-  create_table "business_individuals_users", force: :cascade do |t|
-    t.integer "business_individual_id"
-    t.integer "user_id"
-  end
-
-  add_index "business_individuals_users", ["business_individual_id"], name: "index_business_individuals_users_on_business_individual_id"
-  add_index "business_individuals_users", ["user_id"], name: "index_business_individuals_users_on_user_id"
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -192,9 +172,7 @@ ActiveRecord::Schema.define(version: 20160721020056) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
-    t.string   "image"
     t.string   "picture"
-    t.string   "authy_id"
     t.string   "otp_secret_key"
     t.boolean  "verified"
   end

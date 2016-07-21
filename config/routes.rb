@@ -3,15 +3,16 @@ require 'api_constraints'
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :stores, controllers: {registrations: "stores/registrations"}
-  devise_for :users, controllers: {registrations: "users/registrations"}
+  devise_for :stores, controllers: {registrations: "stores/registrations",sessions: "stores/sessions",passwords: "stores/passwords",confirmations: "stores/confirmations"}
+  devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions",passwords: "users/passwords",confirmations: "users/confirmations"}
   resources :users
  
-
+get '/home' => 'pages#home'
+  get '/how-it-works' => 'pages#howitworks'
+  get '/store-listings' => 'pages#storelistings'
   
   resources :stores
 
-  resources :welcomes, only: [:index]
   
 namespace :api do
   	namespace :v1 do
@@ -89,5 +90,5 @@ namespace :api do
 		end
 
 	end
-  root to: "welcomes#index"
+ root to: "pages#home"
 end
