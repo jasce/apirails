@@ -3,7 +3,7 @@ class Api::V1::U::StoreCategoriesController < Api::V1::BaseApiController
   before_action :authenticate_with_token!
    respond_to :json
  def index
-	   render json: StoreCategory.all.order('created_at DESC').limit(5)
+	   render json: StoreCategory.all.order('created_at ASC').limit(5)
 end
 
 
