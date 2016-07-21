@@ -3,7 +3,7 @@ class StoreNotifier < ApplicationMailer
 	def self.send_multiple(user , booking ,stores)
 		@stores = stores
 		@stores.each do |store| 
-			new_lead_mail(user,booking,store).deliver
+			delay.new_lead_mail(user,booking,store)
 		end
 	end
 	def hired_mail(user , booking , store)

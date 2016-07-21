@@ -9,6 +9,7 @@ gem 'geocoder'
 gem 'sass-rails', '~> 5.0'
 gem 'devise','~> 3.2'
 gem 'coffee-script-source', '1.8.0'
+gem "daemons"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -21,7 +22,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'carrierwave-base64'
 gem 'twilio-ruby'
-
+gem 'delayed_job_active_record'
 gem 'active_model_otp'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
