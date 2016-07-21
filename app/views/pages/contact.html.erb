@@ -1,0 +1,71 @@
+ <h1 align="center">..Reach us here..</h1>
+
+  
+<br>
+<div class="container">
+<br>
+<br>
+  <div class="row">
+        
+      <div class="col-md-4 bor"> 
+      <h4><b>Call us</b></h4> <br> <p class="glyphicon glyphicon-earphone">&nbsp; 8826549352</p><br><br><br><br>
+
+                           <h4><b>E-mail</b></h4><p class="glyphicon glyphicon-envelope" >&nbsp;help@unclejoy.in</p><br><br><br><br><h4><b>Social Media </b></h4><br>
+                           <a href="" style="font-size:20px;"><i style="margin-right:20px;" class="fa fa-facebook"></i></a>
+                           <a href="" style="font-size:20px;"><i style="margin-right:20px;" class="fa fa-twitter"></i></a>
+                           <a href="" style="font-size:20px;"><i style="margin-right:20px;" class="fa fa-linkedin"></i></a><br><br></div>
+    
+      <div class="col-md-4 bor">
+      <h4 ><b>Address</b></h4><br>
+       <p>Unclejoy Pvt. Ltd. <br>CB-153/9 First Floor, <br>Naraina Vihar <br>Ring Road. <br>New Delhi - 110028</p>
+        <div  style="min-height: 200px; width:100%;" id="map"></div>
+      </div>
+      <div  class="col-md-4"><h4><b>Write to us</b></h4><br>
+      <form action="" >
+      <div class="form-group">
+        <input type="name"  class="form-control input-md" style="border-radius:0px;" placeholder="Name" required=""></input>
+         </div>
+      <div class="form-group">
+         <input type="email"  class="form-control input-md" style="border-radius:0px;" placeholder="Email" required=""></input>
+      </div>
+      <div class="form-group">
+         <input type="text" class="form-control input-md"  style="border-radius:0px;" placeholder="Phone-No." required=""></input>
+      </div>
+      <div class="form-group">
+         <textarea type="text"  class="form-control input-md" style="border-radius:0px;" rows=4 placeholder="Your message" required=""></textarea>
+      </div><br>
+      <div class="form-group">
+        <a href="" style="border-radius:0px;" class="btn btn-info btn-md ">Send</a>
+      </div>
+      </form>
+      </div>
+      
+  </div>
+
+    <br>
+    
+</div>
+<br>
+
+
+
+ <script>
+        function initMap() {
+          var mapDiv = document.getElementById('map');
+          var myLatLng = {lat: 28.620882, lng: 77.136577};
+
+          var map = new google.maps.Map(mapDiv, {
+              center: {lat: 28.620882, lng: 77.136577},
+              zoom: 16
+          });
+           var marker = new google.maps.Marker({
+           position: myLatLng,
+            map: map,
+           title: 'Unclejoy Technology '
+  });
+
+        }
+    </script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTmD2N3u2IAlHZkA4Hlziq6T06SkjVXVQ&callback=initMap">
+    </script>

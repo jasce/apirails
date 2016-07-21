@@ -165,7 +165,10 @@ div.navbar-header img{
 }
 
 #image{
-	background-image: url("78.jpg");
+	background-image: url("back3.jpg");
+	 background-repeat:no-repeat;
+
+   background-size:cover;
 	height: 450px;
 
 }
