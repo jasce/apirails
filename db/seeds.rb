@@ -52,7 +52,7 @@ sc5 = StoreCategory.create!(category: 'Construction Material')
 
 # ----------------------------------------------Booking Categories ---------------------------------------
 
-u1.bookings.create!(store_category: sc1 ,address:'312 hajsn,naraina', store_sub_category: ssc11 )
+#u1.bookings.create!(store_category: sc1 ,address:'312 hajsn,naraina', store_sub_category: ssc11 )
 #u2.bookings.create!(store_category: sc1 ,address:'3442 shyam Road,Gurgaon',store_sub_category: ssc12 )
 #u4.bookings.create!(store_category: sc2 ,address:'312 hajsn,new delhi', store_sub_category: ssc21 )
 #u1.bookings.create!(store_category: sc3 ,address:'312 hajsn,naraina', store_sub_category: ssc32 )
