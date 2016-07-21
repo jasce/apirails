@@ -25,7 +25,7 @@ s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',store_name: 'Medha',p
 s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',store_name: 'Lalit Sablania',password: '12345678',address:'312,DLF Phase,Gurgaon',mobile: '+918130323740')
 s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678',store_name: 'Medha Singh',address:'Z-5 , khyala, New Delhi',mobile: '+918130323740')
 s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',store_name: 'Harish',password: '12345678',address: 'CB-153/8, Naraina, Ring Road, New Dehi',mobile: '+918130323740')
-s4 = Store.create!(name: 'Jasmeet',email: 'jasmeetsinghosan@gmail.com',store_name: 'Harish',password: '12345678',address: 'CB-153/8, Naraina, New Dehi',mobile: '+918130323740')
+#s4 = Store.create!(name: 'Jasmeet',email: 'jasmeetsinghosan@gmail.com',store_name: 'Harish',password: '12345678',address: 'CB-153/8, Naraina, New Dehi',mobile: '+918130323740')
 
 # --------------------------------------- Store Categories------------------------------------------
 sc1 = StoreCategory.create!(category: 'Hardware Material')
@@ -52,7 +52,7 @@ sc5 = StoreCategory.create!(category: 'Construction Material')
 
 # ----------------------------------------------Booking Categories ---------------------------------------
 
-#u1.bookings.create!(store_category: sc1 ,address:'312 hajsn,naraina', store_sub_category: ssc11 )
+u1.bookings.create!(store_category: sc1 ,address:'312 hajsn,naraina', store_sub_category: ssc11 )
 #u2.bookings.create!(store_category: sc1 ,address:'3442 shyam Road,Gurgaon',store_sub_category: ssc12 )
 #u4.bookings.create!(store_category: sc2 ,address:'312 hajsn,new delhi', store_sub_category: ssc21 )
 #u1.bookings.create!(store_category: sc3 ,address:'312 hajsn,naraina', store_sub_category: ssc32 )

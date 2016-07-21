@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello, <%= @user.name %>!</h1>
+    <p><%= "#{@store.store_name }, owned by Mr. #{@store.name} responded to your booking that you created #{time_ago_in_words(@booking.created_at)} ago "%></p>
+  </body>
+</html>

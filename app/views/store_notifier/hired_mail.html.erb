@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello, <%= @store.name %>!</h1>
+    <p><%= "#{@user.name },hired your store, #{@store.name} for the booking that was created #{time_ago_in_words(@booking.created_at)} ago "%></p>
+  </body>
+</html>

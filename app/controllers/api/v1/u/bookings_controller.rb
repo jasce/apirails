@@ -46,6 +46,7 @@ class Api::V1::U::BookingsController < Api::V1::BaseApiController
     @response = RespondBooking.find_by(:store_id => params[:store_id])
      booking = current_user.bookings.find(params[:id])
     if booking.update(:store_id => params[:store_id] , :discount => @response.discount , :status => "Hired")
+      StoreNotifier.hired_mail(booking.user , booking , booking.store)
         SendCode.new.send_sms(:to => booking.store.mobile, :body => "Congratulations! #{booking.user.name} hired you for the booking that you responded for with #{booking.discount}% discount  " )
 
     render json: booking , status: 200
@@ -62,10 +63,15 @@ class Api::V1::U::BookingsController < Api::V1::BaseApiController
    def create
     booking = current_user.bookings.build(booking_params)
     if booking.save
-      params[:booking][:attachment_data].each do |file|
-        booking.attachments.create!(attachment: file)
+      if params[:booking][:attachment_data]
+          params[:booking][:attachment_data].each do |file|
+          booking.attachments.create!(attachment: file)
+        end
       end
+      @store = Store.near(booking.address)
+      StoreNotifier.send_multiple(booking.user , booking , @store)
       render json: booking, status: 201#, location: [:api,:v1,:user, booking]
+      
     else
       render json: { errors: booking.errors }, status: 422
     end
