@@ -28,14 +28,16 @@ class Api::V1::S::BookingsController < Api::V1::BaseApiController
   
   def openall
 
+   # @bookings = Booking.where('(status = ? )', "Responded")
+   # @respond_bookings = RespondBooking.where('(status = ? and store_id = ? )', "Responded" , current_store.id)
   	@booking = Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed").order("created_at desc")
    # @booking = RespondBooking.where.not('(store_id = ?)',current_store.id)
     #@booking = Booking.where('(status != ?)', "Hired").joins(:respond_bookings).where('( respond_bookings.store_id = ? OR respond_bookings.id = null)', current_store.id)
   #  @booking = Booking.all.joins(:respond_bookings).where('(bookings.status != ? and respond_bookings.store_id != ?)', "Hired", current_store.id).order("created_at desc")
         #Booking.where(:status => "Unconfirmed").joins("LEFT OUTER JOIN respond_bookings ON respond_bookings.booking_id = bookings.id")
 
-    if stale?(@booking)
-    	render json: @booking
+    if stale?(@bookings)
+    	render json: @bookings
 	end
 
     #render json: Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed").order("created_at desc")
