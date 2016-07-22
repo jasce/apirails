@@ -8,7 +8,7 @@ class Store < ActiveRecord::Base
    mount_base64_uploader :picture, StorePictureUploader
 
     before_create :generate_authentication_token!
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,:confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 	#has_and_belongs_to_many :users
 	has_many :bookings,dependent: :destroy

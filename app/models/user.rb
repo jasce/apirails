@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   before_create :generate_authentication_token!
 
 mount_base64_uploader :picture, PictureUploader
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,:confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 	#has_and_belongs_to_many :stores
 	has_many :bookings,dependent: :destroy
