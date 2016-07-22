@@ -4,6 +4,8 @@
 <html>
 <head>
 	<title>Unclejoy - India's first online material store marketplace </title>
+	<meta charset="utf-8">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" type="image/png" href="logo.png"/>
@@ -80,7 +82,7 @@
       </ul> 
       </div>  
        <% else %>
-       		<div  class="collapse navbar-collapse" id="nb">
+       		<div  class="collapse navbar-collapse " id="nb" style="margin-top:20px;">
 		       <ul class="nav navbar-nav navbar-right">
 			        <li><%= link_to "How it Works ?", how_it_works_path %></li>
 			        <li><%= link_to "Our store Listings" , store_listings_path %></li>		
@@ -174,6 +176,13 @@ function rotateTerm() {
               .delay(2000).fadeOut(800, rotateTerm);
 }
 $(rotateTerm);
+
+function rotateTerm1() {
+  var ct = $("#rotate1").data("term") || 0;
+  $("#rotate1").data("term", ct == terms.length -1 ? 0 : ct + 1).text(terms[ct]).fadeIn(800)
+              .delay(2000).fadeOut(800, rotateTerm1);
+}
+$(rotateTerm1);
   
 </script>
 

@@ -10,8 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- .
- 
+ . 
  *= require_self
  *= require font-awesome
  */
@@ -354,9 +353,7 @@ form input{
 #nb{
 	margin-top: -5px;
 }
-#nb1{
-	margin-top: 20px;
-}
+
 #whystore{
 	text-align:center;
 	margin-top: 50px;
@@ -406,20 +403,7 @@ margin-top: 10px;
 }
 
 
-@media only screen and (max-width: 767px) {
-	div.navbar-header a img{
-		margin-top: -23px;
-	}
 
-	#image{
-	background: image-url("back2.jpg") no-repeat;
-	 background-size:cover;
-	height: 600px;
-
-}
-
-
-}
 @media only screen and (min-width: 767px){
 nav div.container-fluid ul.navbar-right li a{
 	margin-top: -10px;
@@ -528,3 +512,48 @@ margin-top: 30px;
 	padding: 70px 100px;
 	border: 1px solid #E9E9E9;
 }
+
+@media only screen and (max-width: 767px) {
+	div.navbar-header a img{
+		margin-top: -23px;
+	}
+
+	#image{
+	background: image-url("back2.jpg") no-repeat;
+	 background-size:cover;
+	height: 600px;
+}
+#bdr{
+	padding: 0px;
+	border: none;
+	margin-top: 60px;
+}
+#f1{
+	font-size: 14px;
+}
+
+	
+#image{
+	
+	height: 550px;
+
+}
+#image h2{
+	padding-top: 110px;
+	margin: 0px;
+	font-size: 62px;
+	letter-spacing:2.6px;
+	color: #fff;
+	line-height:85px;
+	text-align:center;
+	
+}
+#image h2 span#rotate1{
+	font-size: 57px;
+	letter-spacing:2.5px;
+	color: #ff6600;
+	font-weight: 600;
+}
+
+}
+
