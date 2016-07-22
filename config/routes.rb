@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 get '/home' => 'pages#home'
   get '/how-it-works' => 'pages#howitworks'
   get '/store-listings' => 'pages#storelistings'
+  get '/contact' => 'pages#contact'
+  get '/faq' => 'pages#faq'
   
   resources :stores
 

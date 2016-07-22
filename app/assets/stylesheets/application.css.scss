@@ -435,6 +435,43 @@ em.s{
 	color: #ff0000;
 	font-size: 12px;
 }
+
+
+#faq_heading{
+	text-align:center;
+}
+.faqjumbo{
+	background-image: url("78.jpg");
+	height: 500px;
+}
+#faq2{
+	padding: 30px 50px 30px 50px;
+	background-color: rgba(255, 255, 255, 0.5);
+	color: #000;
+
+}
+.faqpage{
+	background-color: white;
+}
+
+a[aria-expanded=true] .glyphicon-chevron-right {
+   display: none;
+}
+a[aria-expanded=false] .glyphicon-chevron-down {
+   display: none;
+}
+a[aria-expanded=true] .glyphicon-plus {
+   display: none;
+}
+a[aria-expanded=false] .glyphicon-minus {
+   display: none;
+}
+#questions :visited, #questions :active , #questions :hover{
+	text-decoration: none;
+}
+.bor{
+border-right:1px dashed #666;
+}
 /* ---------------------------- Karan's Css -----------------------------*/
 
 #f_btn{
@@ -493,6 +530,7 @@ em.s{
 #le{
 	float: left;
 }
+
 /** -----------------------Mine  --------------------------*/
 p.alert{
 	text-align:center;
@@ -530,6 +568,10 @@ margin-top: 30px;
 }
 #f1{
 	font-size: 14px;
+}
+
+#faq2{
+	visibility: hidden;
 }
 
 	

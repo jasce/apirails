@@ -8,4 +8,9 @@ class PagesController < ApplicationController
 
   def howitworks
   end
+  def contact
+  end
+  
+  def faq  	
+  end
 end
