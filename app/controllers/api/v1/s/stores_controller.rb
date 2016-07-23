@@ -49,7 +49,7 @@ def verify
     if(store.authenticate_otp( @otp , drift: 120))
         store.set_verified_true
         #store.confirm
-        store.skip_confirmation!
+        store = store.update(:confirmed_at => Time.now)
         store.save
        render json: store, status: 201      
     else 
