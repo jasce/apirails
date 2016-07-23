@@ -33,6 +33,18 @@ index do
        end
         actions
   end
+
+  show do
+  		row "Images" do
+   ul do
+    booking.attachments.each do |img|
+      li do 
+        image_tag(img.attachment.url)
+      end
+    end
+   end
+end
+  end
  
 end
 
