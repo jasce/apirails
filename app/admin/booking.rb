@@ -26,7 +26,10 @@ index do
 	column :confirmed
 
 	 column "Attachments" do |booking|
-      link_to booking.attachments.map(&:attachment).join("<br />").html_safe
+       #booking.attachments.map(&:attachment).join("<br />").html_safe
+       booking.attachments.each do |attachment|
+       		link_to attachment
+       end
   end
   default_actions
 end
