@@ -31,6 +31,7 @@ def verify
     if(user.authenticate_otp( @otp , drift: 120))
         user.set_verified_true
         user.confirm
+        
        render json: user, status: 201      
     else
         render json: { errors: "Wrong OTP ! Try Again"}
