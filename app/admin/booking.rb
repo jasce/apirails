@@ -14,7 +14,7 @@ ActiveAdmin.register Booking do
 # end
 index do
 	 column "Attachments" do |booking|
-    booking.attachments.map(&:attachment_file_name).join("<br />").html_safe
+    booking.attachments.map(&:attachment).join("<br />").html_safe
   end
 end
 
