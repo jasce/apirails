@@ -35,7 +35,7 @@ index do
   end
 
   show do
-  		row "Images" do
+  		row "Images" do |booking|
    ul do
     booking.attachments.each do |img|
       li do 
