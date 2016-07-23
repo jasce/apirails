@@ -34,27 +34,27 @@ s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',store_name: 'Medha St
 #s9 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com1234887',store_name: 'Harish Plumbing Store',password: '12345678',address: 'CB-152/8, Narela, Ring Road, New Dehi',mobile: '+918130323740')
 
 # --------------------------------------- Store Categories------------------------------------------
-#sc1 = StoreCategory.create!(category: 'Hardware Material')
-#sc2 = StoreCategory.create!(category: 'Plumbing Material')
-#sc3 = StoreCategory.create!(category: 'Painting Material')
-#sc4 = StoreCategory.create!(category: 'Electrical Material')
-#sc5 = StoreCategory.create!(category: 'Construction Material')
+sc1 = StoreCategory.create!(category: 'Hardware Material')
+sc2 = StoreCategory.create!(category: 'Plumbing Material')
+sc3 = StoreCategory.create!(category: 'Painting Material')
+sc4 = StoreCategory.create!(category: 'Electrical Material')
+sc5 = StoreCategory.create!(category: 'Construction Material')
 
 # --------------------------------------- Store Sub Categories------------------------------------------
-# ssc11 = sc1.store_sub_categories.create!(subcategory: 'General Hardware work')
- #ssc12 = sc1.store_sub_categories.create!(subcategory: 'Industrial Hardware work')
+ ssc11 = sc1.store_sub_categories.create!(subcategory: 'General Hardware work')
+ ssc12 = sc1.store_sub_categories.create!(subcategory: 'Industrial Hardware work')
 
- #ssc21 = sc2.store_sub_categories.create!(subcategory: 'General Plumbing work')
-# ssc22 = sc2.store_sub_categories.create!(subcategory: 'Industrial Plumbing work')
+ssc21 = sc2.store_sub_categories.create!(subcategory: 'General Plumbing work')
+ ssc22 = sc2.store_sub_categories.create!(subcategory: 'Industrial Plumbing work')
 
- #ssc31 = sc3.store_sub_categories.create!(subcategory: 'General Painting work')
- #ssc32 = sc3.store_sub_categories.create!(subcategory: 'Industrial Painting work')
+ ssc31 = sc3.store_sub_categories.create!(subcategory: 'General Painting work')
+ ssc32 = sc3.store_sub_categories.create!(subcategory: 'Industrial Painting work')
 
- #ssc41 = sc4.store_sub_categories.create!(subcategory: 'General Electrical work')
- #ssc42 =  sc4.store_sub_categories.create!(subcategory: 'Industrial Electrical work')
+ ssc41 = sc4.store_sub_categories.create!(subcategory: 'General Electrical work')
+ ssc42 =  sc4.store_sub_categories.create!(subcategory: 'Industrial Electrical work')
 
- #ssc51 = sc5.store_sub_categories.create!(subcategory: 'General Construction work')
- #ssc52 = sc5.store_sub_categories.create!(subcategory: 'Industrial Construction work')
+ ssc51 = sc5.store_sub_categories.create!(subcategory: 'General Construction work')
+ ssc52 = sc5.store_sub_categories.create!(subcategory: 'Industrial Construction work')
 
 # ----------------------------------------------Booking Categories ---------------------------------------
 

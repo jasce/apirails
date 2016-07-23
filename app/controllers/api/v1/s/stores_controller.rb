@@ -50,7 +50,7 @@ def verify
         store.set_verified_true
         #store.confirm
         store.skip_confirmation!
-        store.save!
+        store.save
        render json: store, status: 201      
     else 
         render json: { errors: "Wrong OTP ! Try Again"}
