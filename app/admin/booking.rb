@@ -12,6 +12,10 @@ ActiveAdmin.register Booking do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-
+index do
+	 column "Attachments" do |booking|
+    booking.attachments.map(&:attachment_file_name).join("<br />").html_safe
+  end
+end
 
 end
