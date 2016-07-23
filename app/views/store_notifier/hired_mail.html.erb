@@ -5,6 +5,48 @@
   </head>
   <body>
     <h1>Hello, <%= @store.name %>!</h1>
-    <p><%= "#{@user.name },hired your store, #{@store.name} for the booking that was created #{time_ago_in_words(@booking.created_at)} ago "%></p>
+    <p><%= "#{@user.name },hired your store, #{@store.name} for the booking that was created #{time_ago_in_words(@booking.created_at)} ago "%>. Below are the complete lead details.</p>
+
+     <center><h1>You have been hired for a booking</h1></center><br><br>
+   <center><%= image_tag "https://unclejoy.herokuapp.com/logo.png" %></center>
+   
+   <div style="border:1px solid #e9e9e9;margin:5% ;padding:5%;">
+   <center>
+     <h2 style="margin:5% 0% 5% 0%">Lead Details</h2> 
+   
+   <h3><u>User Name</u></h3>
+   <p><%= @user.name %><p>
+   <hr>
+   <br>
+   <h3><u>Store Category</u></h3>
+   <p><%= @booking.store_category.category %></p>
+   <hr>
+   <br>
+   <h3><u>Material list</u></h3>
+   <div>
+   <%= @booking.attachments.each do |attachment| %>
+   	<ul>
+   		<li><%= image_tag attachment_url.to_s , width: "200px;"%></li>
+   	</ul>
+   	<% end %>
+   </div>
+   
+   <hr>
+   <br>
+   <h3><u>Date and Time</u></h3>
+   <p><%= @booking.date + " , " + @booking.time %></p>
+   <hr>
+   <br>
+   <h3><u>Location</u></h3>
+   <p><%= @booking.address %></p>
+   <hr>
+
+   
+   </center>
+   
+   
+   
+   </div>
+   </br>
   </body>
 </html>

@@ -5,6 +5,36 @@
   </head>
   <body>
     <h1>Hello, <%= @user.name %>!</h1>
-    <p><%= "#{@store.store_name }, owned by Mr. #{@store.name} responded to your booking that you created #{time_ago_in_words(@booking.created_at)} ago "%></p>
+    <p><%= "#{@store.store_name }, owned by Mr. #{@store.name} responded to your booking that you created #{time_ago_in_words(@booking.created_at)} ago "%>. Below are the complete lead details./p>
+
+    <div style="background-color:#fff;margin:5% 20% 5% 20%">
+<br>
+<div style="border:1px solid #000;margin:5% 15% 5% 15%;padding:0% 5% 0% 5%;">
+	<img src="logo.png" style="margin:3% 0% 5% -4%" >
+<br>
+<center><u>Store Name</u>
+<p><%= @store.store_name %></p>
+<br>
+
+<u>Store Location</u>
+<p><%= @store.address %></p>
+<br>
+<br>
+
+
+</center>
+
+<br>
+<br>
+</div>
+<p><span style="float:left;margin-left:2%;">customer@unclejoy.in</span></p>
+<p><span style="float:right;margin-right:2%"> +91- 8826549353</span></p>
+<br>
+<br>
+</div>
+  <center><p>CB 153|9, 1st Floor, Naraina, Ring Road, New Delhi - 28</p><center>
+
+
+
   </body>
 </html>
