@@ -28,7 +28,7 @@ index do
 	 column "Attachments" do |booking|
        #booking.attachments.map(&:attachment).join("<br />").html_safe
        booking.attachments.each do |attachment|
-       		link_to attachment
+       		link_to attachment.attachment
        end
   end
   actions
