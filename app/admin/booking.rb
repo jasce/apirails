@@ -14,7 +14,9 @@ ActiveAdmin.register Booking do
 # end
 index do
 
-	column :id
+	column :id do |booking|
+		link_to booking.id , [:admin,booking]
+	end
 	column :user
 	column :store
 	column :store_category
@@ -26,9 +28,8 @@ index do
 	column :confirmed
 
 	 column "Attachments" do |booking|
-       #booking.attachments.map(&:attachment).join("<br />").html_safe
-       booking.attachments.each do |attachment|
-       		link_to attachment.attachment.url
+       booking.attachments.map(&:attachment).join("<br />").html_safe
+      
        end
   end
   actions
