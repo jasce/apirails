@@ -31,7 +31,7 @@ index do
        		link_to attachment
        end
   end
-  default_actions
+  actions
 end
 
 end
