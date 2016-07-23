@@ -13,4 +13,7 @@ class PagesController < ApplicationController
   
   def faq  	
   end
+
+  def success_password_changed    
+  end
 end

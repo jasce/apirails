@@ -12,6 +12,7 @@ get '/home' => 'pages#home'
   get '/store-listings' => 'pages#storelistings'
   get '/contact' => 'pages#contact'
   get '/faq' => 'pages#faq'
+  get '/success' => 'pages#success_password_changed'
   
   resources :stores
 
