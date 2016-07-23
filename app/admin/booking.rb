@@ -35,11 +35,13 @@ index do
   end
 
   show do
-  		row "Images" do |booking|
+
+  	row :date
+  	row :attachments do |booking|
    ul do
-    booking.attachments.each do |img|
+    booking.attachments.each do |attachment|
       li do 
-        image_tag(img.attachment.url)
+        image_tag (attachment.attachment.url)
       end
     end
    end
