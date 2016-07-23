@@ -31,8 +31,8 @@ index do
        booking.attachments.map(&:attachment).join("<br />").html_safe
       
        end
+        actions
   end
-  actions
+ 
 end
 
-end
