@@ -16,7 +16,7 @@ class Api::V1::S::RespondBookingsController < Api::V1::BaseApiController
 		   		book_id = respond_booking.booking_id	   		
 		   		booking = Booking.find(book_id)
 		   		booking.update(status: "Responded")
-		   		UserNotifier.respond_mail(booking.user , booking , respond_booking.store).deliver
+		   		UserNotifier.respond_mail(booking.user , booking , respond_booking.store).deliver_now
 		   		SendCode.new.send_sms(:to => booking.user.mobile, :body => "#{respond_booking.store.store_name} responded to your booking with #{respond_booking.discount}% discount  that you created #{time_ago_in_words(booking.created_at)} ago" )
 		      render json: respond_booking, status: 201#, location: [:api,:v1,:user, booking]
 		   else

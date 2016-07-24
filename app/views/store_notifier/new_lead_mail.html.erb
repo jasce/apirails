@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body style="background-color:#e9e9e9;font-family:'Raleway,sans-serif;">
-    <h1>Hello, <%= @store.name %>!</h1>
+    <h1>Hello, <%= "#{@store.name}" %>!</h1>
     <p><%= "#{@user.name },just created a new lead #{time_ago_in_words(@booking.created_at)} ago for stores like you to respond to!  "%></p>
 
     <div style="margin:3% 7% ;background-color:#fff;">
@@ -19,30 +19,32 @@
      <h2 style="margin:5% 0% 5% 0%">Lead Details</h2> 
    
    <h3><u>User Name</u></h3>
-   <p><%= @user.name %><p>
+   <p><%= "#{@user.name}" %><p>
    <hr>
    <br>
    <h3><u>Store Category</u></h3>
-   <p><%= @booking.store_category.category %></p>
+   <p><%= "#{@booking.store_category}" %></p>
    <hr>
    <br>
    <h3><u>Material list</u></h3>
    <div>
-   <%= @booking.attachments.each do |attachment| %>
-   	<ul>
-   		<li><%= image_tag attachment_url.to_s , width: "200px;"%></li>
-   	</ul>
-   	<% end %>
+  <% i=0 %>
+   <% @booking.attachments.each do |attachment| %>
+    <ul>
+      <% i=i+1 %>
+      <li><%= link_to "Attachment #{i}" , "https://ujapi.herokuapp.com#{attachment.attachment_url}"%></li>
+    </ul>
+    <% end %>
    </div>
    
    <hr>
    <br>
    <h3><u>Date and Time</u></h3>
-   <p><%= @booking.date + " , " + @booking.time %></p>
+   <p><%= "#{@booking.date} ,  #{@booking.time}" %></p>
    <hr>
    <br>
    <h3><u>Location</u></h3>
-   <p><%= @booking.address %></p>
+   <p><%= "#{@booking.address}" %></p>
    <hr>
 
    

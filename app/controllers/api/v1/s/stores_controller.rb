@@ -89,7 +89,7 @@ end
      private
 
     def store_params
-      params.require(:store).permit(:name, :email, :mobile,:password,:password_confirmation,:picture,:store_name,:description, store_category_attributes: [:id , :category])
+      params.require(:store).permit(:name, :email, :mobile,:password,:password_confirmation,:address,:picture,:store_name,:description, store_category_attributes: [:id , :category])
     end
 
 end
