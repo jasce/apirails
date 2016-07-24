@@ -12,7 +12,28 @@ ActiveAdmin.register Booking do
 #   permitted << :other if resource.something?
 #   permitted
 # end
+show do |booking|
+  attributes_table do
+    row :date
+    row :time
+    row :store_category
+    row "Attachments" do
+      ul do
+        i = 0
+        booking.attachments.each do |attachment|
+          li do
+ #           link_to(image_tag(attachment.attachment_url, class: 'admin_attachment'), admin_attachment_path(attachment))
+            i = i+1
+            link_to " Attachment #{i}" ,"https://ujapi.herokuapp.com#{attachment.attachment_url}",target: "_blank"
+            
+          end
+          i+1
+        end
+      end
 
- 
+    end
+  
+  end
 end
 
+end
