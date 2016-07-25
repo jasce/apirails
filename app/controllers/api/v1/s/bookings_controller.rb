@@ -52,7 +52,7 @@ class Api::V1::S::BookingsController < Api::V1::BaseApiController
         #Booking.where(:status => "Unconfirmed").joins("LEFT OUTER JOIN respond_bookings ON respond_bookings.booking_id = bookings.id")
 
     if stale?(@booking)
-    	render json: @booking.order("created_at desc")
+    	render json: @booking
 	end
 
     #render json: Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed").order("created_at desc")
