@@ -43,7 +43,7 @@ class Api::V1::S::BookingsController < Api::V1::BaseApiController
 
    open_booking_ids = b.reject{|x| booking_ids.include? x.id}
 
-   @booking = Booking.find(open_booking_ids).order("created_at desc")
+   @booking = Booking.find(open_booking_ids)
 
   #	@booking =  Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed").order("created_at desc")
    # @booking = RespondBooking.where.not('(store_id = ?)',current_store.id)
@@ -52,7 +52,7 @@ class Api::V1::S::BookingsController < Api::V1::BaseApiController
         #Booking.where(:status => "Unconfirmed").joins("LEFT OUTER JOIN respond_bookings ON respond_bookings.booking_id = bookings.id")
 
     if stale?(@booking)
-    	render json: @booking
+    	render json: @booking.order("created_at desc")
 	end
 
     #render json: Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed").order("created_at desc")
