@@ -14,18 +14,24 @@ StoreCategory.destroy_all
 StoreSubCategory.destroy_all
 Booking.destroy_all
 RespondBooking.destroy_all
+Attachment.destroy_all
 # --------------------------------------- Users  =------------------------------------------
 u1 = User.create!(name: 'Jasmeet',email: 'jascee.gtbit@gmail.comz',password: '12345678',mobile: '+918130323740')
-u2 = User.create!(name: 'JasmeetS',email: 'jascee.gtbit@gmail.comn',password: '12345678',mobile: '+918130323740')
-u3 = User.create!(name: 'JasmeetSi',email: 'jascee.gtbit@gmail.comno',password: '12345678',mobile: '+918130323740')
-u4 = User.create!(name: 'JasmeetSin',email: 'jascee.gtbit@gmail.comnop',password: '12345678',mobile: '+918130323740')
+#u2 = User.create!(name: 'JasmeetS',email: 'jascee.gtbit@gmail.comn',password: '12345678',mobile: '+918130323740')
+#u3 = User.create!(name: 'JasmeetSi',email: 'jascee.gtbit@gmail.comno',password: '12345678',mobile: '+918130323740')
+#u4 = User.create!(name: 'JasmeetSin',email: 'jascee.gtbit@gmail.comnop',password: '12345678',mobile: '+918130323740')
 
 # --------------------------------------- Stores  =------------------------------------------
-s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',store_name: 'Medha',password: '12345678',address:'312,Chand Nagar,New Delhi-110018',mobile: '+918130323740')
-s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',store_name: 'Lalit Sablania',password: '12345678',address:'312,DLF Phase,Gurgaon',mobile: '+918130323740')
-s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678',store_name: 'Medha Singh',address:'Z-5 , khyala, New Delhi',mobile: '+918130323740')
-s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',store_name: 'Harish',password: '12345678',address: 'CB-153/8, Naraina, Ring Road, New Dehi',mobile: '+918130323740')
+s1 = Store.create!(name: 'Wasser',email: 'sabhi@gmail.com',store_name: 'Medha Store',password: '12345678',address:'312,Chand Nagar,New Delhi-110018',mobile: '+918130323740')
+#s2 = Store.create!(name: 'Grundfos',email: 'sabhi@gmail.com1',store_name: 'Lalit Sablania Hardware Store',password: '12345678',address:'312,DLF Phase,Gurgaon',mobile: '+918130323740')
+#s3 = Store.create!(name: 'Wilo',email: 'sabhi@gmail.com12',password: '12345678',store_name: 'Wasser Systems',address:'Z-5 , khyala, New Delhi',mobile: '+918130323740')
+#s4 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com123',store_name: 'Arora Construction Material Store',password: '12345678',address: 'CB-153/8, Naraina, Ring Road, New Dehi',mobile: '+918130323740')
 #s4 = Store.create!(name: 'Jasmeet',email: 'jasmeetsinghosan@gmail.com',store_name: 'Harish',password: '12345678',address: 'CB-153/8, Naraina, New Dehi',mobile: '+918130323740')
+#s5 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com1234',store_name: 'Harish Plumbing Store',password: '12345678',address: 'CB-153/8, Ramesh Nagar, Ring Road, New Dehi',mobile: '+918130323740')
+#s6 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com12345',store_name: 'Karan Painting Store',password: '12345678',address: 'CB-157/8, Kundli, Ring Road, New Dehi',mobile: '+918130323740')
+#s7 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com12346',store_name: 'Daman Plumbing Store',password: '12345678',address: 'CB-155/8, MG Road Gurgaon, ',mobile: '+918130323740')
+#s8 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com12347',store_name: 'Jasmeet Industries',password: '12345678',address: 'CB-152/8, Narela, Ring Road, New Dehi',mobile: '+918130323740')
+#s9 = Store.create!(name: 'Mugerilal',email: 'sabhi@gmail.com1234887',store_name: 'Harish Plumbing Store',password: '12345678',address: 'CB-152/8, Narela, Ring Road, New Dehi',mobile: '+918130323740')
 
 # --------------------------------------- Store Categories------------------------------------------
 sc1 = StoreCategory.create!(category: 'Hardware Material')
@@ -38,7 +44,7 @@ sc5 = StoreCategory.create!(category: 'Construction Material')
  ssc11 = sc1.store_sub_categories.create!(subcategory: 'General Hardware work')
  ssc12 = sc1.store_sub_categories.create!(subcategory: 'Industrial Hardware work')
 
- ssc21 = sc2.store_sub_categories.create!(subcategory: 'General Plumbing work')
+ssc21 = sc2.store_sub_categories.create!(subcategory: 'General Plumbing work')
  ssc22 = sc2.store_sub_categories.create!(subcategory: 'Industrial Plumbing work')
 
  ssc31 = sc3.store_sub_categories.create!(subcategory: 'General Painting work')
@@ -52,7 +58,7 @@ sc5 = StoreCategory.create!(category: 'Construction Material')
 
 # ----------------------------------------------Booking Categories ---------------------------------------
 
-u1.bookings.create!(store_category: sc1 ,address:'312 hajsn,naraina', store_sub_category: ssc11 )
+#u1.bookings.create!(store_category: sc1 ,address:'312 hajsn,naraina', store_sub_category: ssc11 )
 #u2.bookings.create!(store_category: sc1 ,address:'3442 shyam Road,Gurgaon',store_sub_category: ssc12 )
 #u4.bookings.create!(store_category: sc2 ,address:'312 hajsn,new delhi', store_sub_category: ssc21 )
 #u1.bookings.create!(store_category: sc3 ,address:'312 hajsn,naraina', store_sub_category: ssc32 )

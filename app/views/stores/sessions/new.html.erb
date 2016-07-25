@@ -2,14 +2,9 @@
 <div class="container">
 <div class="row">
           
-              <div class="col-lg-offset-4 col-lg-4"  id="bdr">
+              <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10" id="bdr">
               <h2 align="center" style="margin:0;">Store Sign In</h2>
-              <h3 align="center">Unclejoy says Sweet Hi!</h3>
-              <div class="row" style="padding:15px;">
-              <p style="color:#ff0000;" class="visible-xs">Not a Registered Store Yet?</p>
-              <div class="col-lg-6"><a href="#"><%= link_to "Sign In",new_store_session_path,id:"sb_btn", class:"btn btn-default  btn-block hidden-xs"%></div> 
-              <div class="col-lg-6"><%= link_to "Sign Up", new_store_registration_path, id:"sb_btn" ,class:"btn btn-info btn-block" %></div> 
-              </div>
+              
               <br><br>
 
 
@@ -32,15 +27,19 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
-  <%= link_to "Forgot your password?", new_store_password_path,id: "fl" %>
+  <%= link_to "Forgot your password?", new_store_password_path,id: "fl" , class: "hidden-xs"%>
+  <%= link_to "Forgot password?", new_user_password_path,id: "fl" ,class: "visible-xs"%>
   <div class="actions">
     <%= f.submit "Log in",class: "btn btn-info btn-block",id: "b_signup" %>
+
   </div>
 <% end %>
 
 <p align="center" style=" margin:12px 0px 12px 0px;">Or</p>
    <button class="btn btn-primary btn-block fa fa-facebook" id="f_btn" > <span >Sign In with Facebook </span></button>
-   <button class="btn btn-primary btn-block fa fa-google-plus" id="g_btn" > <span >Sign In with Google</span></button>       
+   <button class="btn btn-primary btn-block fa fa-google-plus" id="g_btn" > <span >Sign In with Google</span></button>  
+   <p style="margin-top:15px;font-size:15px;"> Not Registered Yet ? <%= link_to 'Sign Up',new_store_registration_path %> </p>     
+             
         
 
              

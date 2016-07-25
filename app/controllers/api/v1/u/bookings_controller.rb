@@ -46,7 +46,7 @@ class Api::V1::U::BookingsController < Api::V1::BaseApiController
     @response = RespondBooking.find_by(:store_id => params[:store_id])
      booking = current_user.bookings.find(params[:id])
     if booking.update(:store_id => params[:store_id] , :discount => @response.discount , :status => "Hired")
-      StoreNotifier.hired_mail(booking.user , booking , booking.store)
+      StoreNotifier.hired_mail(booking.user , booking , booking.store).deliver_now
         SendCode.new.send_sms(:to => booking.store.mobile, :body => "Congratulations! #{booking.user.name} hired you for the booking that you responded for with #{booking.discount}% discount  " )
 
     render json: booking , status: 200

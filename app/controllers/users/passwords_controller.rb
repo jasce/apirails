@@ -18,6 +18,10 @@ def create
  
 	
 end
+protected
+def after_resetting_password_path_for(resource)
+  '/success'
+end
 
   
 end

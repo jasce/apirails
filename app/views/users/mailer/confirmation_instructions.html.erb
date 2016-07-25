@@ -1,5 +1,33 @@
-<p>Welcome <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+ 
+ <div class="container mar" style="background-color:white;padding: 8%;margin: 3% 7%; border:1px solid #c9c9c9;">
+   
+  <%= image_tag "https://unclejoy.herokuapp.com/logo.png" %>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  	<h2>Welcome <%= @email %>!</h2><br>
+
+<p style="font-size:16px;">You can confirm your account email through the link below:</p><br><br>
+
+<p style="font-size:16px;"><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), style: 'background-color:#ff6600; padding:2.5% 3.5% 2.5% 3.5%;text-decoration:none;border:none;color:#fff;border-radius:25px;'%></p><br><br><br><br><br>
+
+	 <b>Cheers!<br>
+    Team Unclejoy<br><br></b>
+
+  PS: Hiring a local material store is much more easier with our latest mobile app.<br><br>
+    Download Unclejoy Android Mobile App now. :)<br>
+
+    <%= image_tag "https://ujapi.herokuapp.com/googleplay.png", style: 'width: 140px;'%>
+  
+
+ </div>
+
+
+
+
+
+
+
+
+  
+  
+
