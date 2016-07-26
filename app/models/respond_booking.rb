@@ -4,4 +4,5 @@ class RespondBooking < ActiveRecord::Base
 
   belongs_to :booking
   belongs_to :store
+  belongs_to :store_category
 end

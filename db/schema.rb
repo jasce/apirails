@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722212300) do
+ActiveRecord::Schema.define(version: 20160726103229) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -95,11 +95,13 @@ ActiveRecord::Schema.define(version: 20160722212300) do
     t.integer  "booking_id"
     t.integer  "store_id"
     t.integer  "discount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "store_category_id"
   end
 
   add_index "respond_bookings", ["booking_id"], name: "index_respond_bookings_on_booking_id"
+  add_index "respond_bookings", ["store_category_id"], name: "index_respond_bookings_on_store_category_id"
   add_index "respond_bookings", ["store_id"], name: "index_respond_bookings_on_store_id"
 
   create_table "store_categories", force: :cascade do |t|

@@ -8,7 +8,7 @@ class RespondBookingSerializer < ActiveModel::Serializer
   end
 
 
-  has_one :booking
+  has_one :booking, include: [:store_category]
   has_one :store
   
 end
