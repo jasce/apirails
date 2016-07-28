@@ -26,6 +26,7 @@ gem 'delayed_job_active_record'
 gem 'active_model_otp'
 gem "font-awesome-rails"
 gem "fog-aws"
+gem "fog"
 
 
 
