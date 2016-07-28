@@ -1,23 +1,45 @@
 class Api::V1::BaseApiController <  ActionController::Metal
-	include ActionController::Helpers
-	include ActionController::Redirecting
-	include ActionController::Rendering
-	include ActionController::Renderers::All
-  	include ActionController::ConditionalGet
-  	include ActionController::MimeResponds
+	include AbstractController::Rendering
+include ActionController::Redirecting
+include ActionView::Layouts
+include ActionController::Rendering
+include ActionController::Renderers::All
+include ActionController::MimeResponds
+include ActionController::ImplicitRender
+include ActionController::StrongParameters
+include ActionController::RequestForgeryProtection
+include ActionController::ForceSSL
+include AbstractController::Callbacks
+include Devise::Controllers::Helpers
+
+
+
+
+
+
+
+
+
+
+  #include ActionController::Helpers
+	#include ActionController::Redirecting
+	#include ActionController::Rendering
+	#include ActionController::Renderers::All
+  	#include ActionController::ConditionalGet
+  	#include ActionController::MimeResponds
 
   	include ActionController::Caching
-    include AbstractController::Rendering
+    #include AbstractController::Rendering
     #include ActionController::Renderers::All
     #include ActionController::ConditionalGet
-    include ActionController::ParamsWrapper
+   #include ActionController::ParamsWrapper
 
     #include ActionController::MimeResponds
-    include ActionController::RequestForgeryProtection
-    include AbstractController::Callbacks
+    #include ActionController::RequestForgeryProtection
+   # include AbstractController::Callbacks
 
-    include ActionController::Instrumentation
-    include ActionController::Rescue
+   # include ActionController::Instrumentation
+    #include ActionController::Rescue
 
     #Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
     include Rails.application.routes.url_helpers
@@ -27,7 +49,7 @@ class Api::V1::BaseApiController <  ActionController::Metal
 
     ActiveSupport.run_load_hooks(:action_controller, self)
   
-  	include ActionView::Layouts
+  	#include ActionView::Layouts
 
   
 
