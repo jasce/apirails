@@ -7,6 +7,7 @@ class Api::V1::BaseApiController <  ActionController::Metal
   	include ActionController::MimeResponds
 
   	include ActionController::Caching
+    include AbstractController::Rendering
     #include ActionController::Renderers::All
     #include ActionController::ConditionalGet
     include ActionController::ParamsWrapper
