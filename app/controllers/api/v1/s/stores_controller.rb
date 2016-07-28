@@ -6,12 +6,13 @@ class Api::V1::S::StoresController < Api::V1::BaseApiController
    # respond_with current_user.stores
   #end
 
-  #def show
- # render json: Store.find(params[:id])
-#end
-
+  def show
+  render json: Store.find(params[:id]) , serializer: ShowStoreSerializer
+end
 
     
+
+
     def storeswithlocation
       
        render json: Store.near(params[:search],10)
@@ -37,9 +38,9 @@ end
 def update
     store = current_store
   if store.update(store_params)
-    render json: store, status: 200
+    render json: store,  serializer: ShowStoreSerializer, status: 200
   else
-    render json: { errors: store.errors }, status: 422
+    render json: { errors: store.errors }, status: 422 
   end
 end
 

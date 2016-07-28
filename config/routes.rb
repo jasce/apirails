@@ -69,7 +69,7 @@ namespace :api do
 		      post "stores/verify" => 'stores#verify'
 		      post "stores/resend" => 'stores#resend'
 		    end
-		    resources :stores , :only => [:create,:delete,:update]
+		    resources :stores , :only => [:create,:delete,:update,:show]
 		    resources :bookings, :only => [] do
 		    	resources :respond_bookings, :only => [:create]
 		        collection do
