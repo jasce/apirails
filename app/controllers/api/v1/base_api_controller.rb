@@ -9,8 +9,10 @@ include ActionController::ImplicitRender
 include ActionController::StrongParameters
 include ActionController::RequestForgeryProtection
 include ActionController::ForceSSL
+include ActionController::ConditionalGet
 include AbstractController::Callbacks
 include Devise::Controllers::Helpers
+
 
 
 
