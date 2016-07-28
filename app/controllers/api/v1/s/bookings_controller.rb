@@ -42,8 +42,8 @@ class Api::V1::S::BookingsController < Api::V1::BaseApiController
    #remove respond table id from main booking ids 
 
    open_booking_ids = b.reject{|x| booking_ids.include? x.id}
-   sorted_booking_ids = open_booking_ids.sort.reverse
-   @booking = Booking.find(sorted_booking_ids)
+   
+   @booking = Booking.find(open_booking_ids).reverse
 
   #	@booking =  Booking.where('(confirmed = ? and status = ?)' , true , "Unconfirmed").order("created_at desc")
    # @booking = RespondBooking.where.not('(store_id = ?)',current_store.id)
