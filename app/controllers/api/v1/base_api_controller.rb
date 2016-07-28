@@ -32,7 +32,7 @@ include Devise::Controllers::Helpers
     #include AbstractController::Rendering
     #include ActionController::Renderers::All
     #include ActionController::ConditionalGet
-   #include ActionController::ParamsWrapper
+   include ActionController::ParamsWrapper
 
     #include ActionController::MimeResponds
     #include ActionController::RequestForgeryProtection
