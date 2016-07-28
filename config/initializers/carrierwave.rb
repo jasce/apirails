@@ -8,14 +8,14 @@ CarrierWave.configure do |config|
   config.delete_tmp_file_after_storage = false
   #config.fog_provider = 'fog/aws'
   config.fog_credentials = {
-  	provider:  'AWS',
-  	aws_access_key_id:   'AKIAIEDU3A2EOD6MKOOA',
-  	aws_secret_access_key:  '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',
-  	#host:  's3-us-west-2.amazonaws.com',
-  	region:  'us-west-2',
+    provider:  'AWS',
+    aws_access_key_id:   ENV['AWS_ACCESS_KEY'],
+    aws_secret_access_key:  ENV['AWS_SECRET_KEY'],
+    path_style:  true, 
+    region:  'us-west-2'
 
   }
-  config.fog_directory = 'unclejoy'
+  config.fog_directory = ENV['AWS_BUCKET']
   config.fog_public = true
   config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" }
 
