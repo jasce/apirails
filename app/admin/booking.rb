@@ -24,7 +24,7 @@ show do |booking|
           li do
  #           link_to(image_tag(attachment.attachment_url, class: 'admin_attachment'), admin_attachment_path(attachment))
             i = i+1
-            link_to " Attachment #{i}" ,"https://ujapi.herokuapp.com#{attachment.attachment_url}",target: "_blank"
+            link_to " Attachment #{i}" ,"#{attachment.attachment_url}",target: "_blank"
             
           end
           i+1
