@@ -1,4 +1,4 @@
-class Api::V1::BaseApiController <  ActionController::Base
+class Api::V1::BaseApiController <  ActionController::Metal
 	include ActionController::Helpers
 	include ActionController::Redirecting
 	include ActionController::Rendering
